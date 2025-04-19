@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Jugador extends Model
 {
     use HasFactory;
@@ -29,4 +30,32 @@ class Jugador extends Model
     {
         return $this->belongsToMany(User::class, 'tutor_jugador', 'jugador_id', 'usuari_id');
     }
+
+    public function estadistiques()
+    {
+        return $this->hasMany(Estadistica::class);
+    }
+
+    public function canvisEntrant()
+    {
+        return $this->hasMany(Canvi::class, 'jugador_entra_id');
+    }
+
+    public function canvisSortint()
+    {
+        return $this->hasMany(Canvi::class, 'jugador_surt_id');
+    }
+
+    public function canvis()
+    {
+        return $this->canvisEntrant->merge($this->canvisSortint);
+    }
+
+    public function gols()
+    {
+        return $this->hasMany(Gol::class);
+    }
+
+
+
 }
