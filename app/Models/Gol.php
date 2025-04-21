@@ -35,3 +35,5 @@ class Gol extends Model
     }
 }
 
+// $gol->partit->rival;         // veure contra qui es va jugar
+// $gol->jugador?->nom;         // accedir al nom del jugador (si n'hi ha)

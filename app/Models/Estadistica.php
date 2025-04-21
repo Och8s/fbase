@@ -9,6 +9,8 @@ class Estadistica extends Model
 {
     use HasFactory;
 
+    protected $table = 'estadistiques'; // <- AFEGIT AIXÒ! ✅
+
     protected $fillable = [
         'jugador_id',
         'partit_id',

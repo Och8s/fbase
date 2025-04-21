@@ -16,6 +16,8 @@
 
         <!-- Styles -->
         @livewireStyles
+        @yield('scripts')
+
     </head>
     <body class="font-sans antialiased">
         <x-banner />
@@ -34,8 +36,13 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                @isset($slot)
+                    {{ $slot }}
+                @else
+                    @yield('content')
+                @endisset
             </main>
+
         </div>
 
         @stack('modals')

@@ -43,3 +43,7 @@ class Canvi extends Model
         return $this->belongsTo(Jugador::class, 'jugador_surt_id');
     }
 }
+
+// $canvi->jugadorEntra->nom; // Accedir al nom del jugador que entra
+// $canvi->jugadorSurt->nom;  // Accedir al jugador que surt
+// $canvi->partit->rival;     // Saber contra qui era el partit

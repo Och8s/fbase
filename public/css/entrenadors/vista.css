@@ -1,0 +1,45 @@
+/* Estilo para botones de jugadores */
+.btn-jugador {
+    display: inline-block;
+    background-color: #007bff !important; /* Azul Bootstrap */
+    color: #fff !important;
+    border: none;
+    border-radius: 50%; /* Hace el botón redondo */
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bold;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-jugador:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+}
+
+/* Estilo para el desplegable de partidos */
+#partitsSelect {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+/* Estilo para el botón de estadísticas del equipo */
+#btnEstadisticaEquip {
+    background-color: #28a745; /* Verde Bootstrap */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+#btnEstadisticaEquip:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el ratón */
+}
