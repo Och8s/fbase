@@ -17,6 +17,7 @@ class Jugador extends Model
         'data_naixement',
         'dorsal',
         'equip_id',
+        'genere',
     ];
 
     // Relación con Equip
