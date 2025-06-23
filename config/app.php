@@ -15,7 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
-    /*
+    /* pendiente LARAVEL POR GESTIO ESTADISTIQUES???
     |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------

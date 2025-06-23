@@ -65,4 +65,13 @@ class GolsController extends Controller
             'message' => 'Gol eliminat correctament'
         ]);
     }
+
+    public function deleteByPartit($partitId)    { // no usada
+        Gol::where('partit_id', $partitId)->delete();
+
+        return response()->json([
+            'message' => 'Tots els gols del partit han estat eliminats correctament.'
+        ]);
+    }
+
 }

@@ -39,7 +39,6 @@ class JugadorsController extends Controller
     public function vistaTutor($id)
     {
         $jugador = Jugador::with('equip')->findOrFail($id);
-
         $estadistiques = Estadistica::where('jugador_id', $id)->get();
 
         if ($estadistiques->isEmpty()) {
@@ -50,77 +49,120 @@ class JugadorsController extends Controller
         }
 
         $equipId = $jugador->equip_id;
-
-        // Tots els partits d'aquest equip
         $partitsEquip = Partit::where('equip_id', $equipId)->get();
 
-        // FILTRATS
-        $ambPresencia = $estadistiques->where('partido_jugado', true);
-        $titulars = $estadistiques->where('titular', true);
+        // PARTICIPACIÓ
+        $partitsJugats = $estadistiques->where('partido_jugado', true)->count();
+        $partitsTitular = $estadistiques->where('titular', true)->count();
         $minutsTotals = $estadistiques->sum('minuts_jugats');
+        $minutsPerPartit = $partitsJugats > 0 ? round($minutsTotals / $partitsJugats, 2) : null;
+        $partitsJugatsEquip = $partitsEquip->where('partit_jugat', true)->count();
+        $minutsEquipTotals = $partitsJugatsEquip * 95;
+        $percentatgeMinuts = $minutsEquipTotals > 0
+            ? round(($minutsTotals / $minutsEquipTotals) * 100, 2)
+            : null;
+
+        // MITJANES DE PUNTS
+
+        // MITJANA DE PUNTS presnencia
+        $puntsPresencia = $estadistiques->where('partido_jugado', true)->sum('punts_equip_jjp');
+        $mitjanaPuntsPresencia = $partitsJugats > 0
+            ? round($puntsPresencia / $partitsJugats, 2)
+            : null;
+
+        $puntsPresenciaTitular = $estadistiques->where('titular', true)->sum('punts_equip_jjp');
+        $mitjanaPuntsPresenciaTitular = $partitsTitular > 0
+                ? round($puntsPresenciaTitular / $partitsTitular, 2)
+                : null;
+
+        $puntsPresenciaAlCamp = $estadistiques->where('partido_jugado', true)->sum('punts_equip_jec');
+        $mitjanaPuntsPresenciaAlCamp = $partitsJugats > 0
+                    ? round($puntsPresenciaAlCamp / $partitsJugats, 2)
+                    : null;
+
+       $partitsJugatsEquipats = $partitsEquip->where('partit_jugat', true);
+        // Calcular punts totals com en una lliga real
+        $puntsEquip = $partitsJugatsEquipats->reduce(function ($carry, $partit) {
+            if ($partit->gols_favor > $partit->gols_contra) {
+                return $carry + 3;
+            } elseif ($partit->gols_favor == $partit->gols_contra) {
+                return $carry + 1;
+            } else {
+                return $carry;
+            }
+        }, 0);
+
+        // Mitjana per partit
+        $mitjanaPuntsEquip = $partitsJugatsEquipats->count() > 0
+            ? round($puntsEquip / $partitsJugatsEquipats->count(), 2)
+            : null;
+
+        // GOLS
         $golsJugador = $estadistiques->sum('gols_jugador');
-
-        // PARTITS amb el jugador (per ID de partit)
-        $idsPartitsAmbJugador = $ambPresencia->pluck('partit_id')->unique();
-        $partitsAmbJugador = $partitsEquip->whereIn('id', $idsPartitsAmbJugador);
-
-        // MITJANES PUNTS
-        $mitjanaPuntsAmbJugador = $ambPresencia->avg('punts_equip_jjp') ?? 0;
-        $mitjanaPuntsTitular = $titulars->avg('punts_equip_jjp') ?? 0;
-        $mitjanaPuntsCamp = $estadistiques->avg('punts_equip_jec') ?? 0;
-        $mitjanaPuntsEquip = $partitsEquip->count() > 0 ? $partitsEquip->sum('resultat') / $partitsEquip->count() : 0;
-
-        // GOLS MARCATS I REBUTS AMB JUGADOR AL CAMP
-        $golsFavorAmb = $estadistiques->sum('gols_favor_jec');
-        $golsContraAmb = $estadistiques->sum('gols_contra_jec');
-        $difGolsAmb = $estadistiques->sum('dif_gols_jec');
-
-        // COMPARATIVA GOLS MITJANA AMB I SENSE EL JUGADOR
-        $partitsSenseJugador = $partitsEquip->whereNotIn('id', $idsPartitsAmbJugador);
-
-        $mitjanaGolsAmbJugador = $partitsAmbJugador->count() > 0
-            ? $partitsAmbJugador->sum('gols_favor') / $partitsAmbJugador->count()
-            : 0;
-
-        $mitjanaGolsSenseJugador = $partitsSenseJugador->count() > 0
-            ? $partitsSenseJugador->sum('gols_favor') / $partitsSenseJugador->count()
-            : 0;
-
-        $mitjanaGolsRebutsAmbJugador = $partitsAmbJugador->count() > 0
-            ? $partitsAmbJugador->sum('gols_contra') / $partitsAmbJugador->count()
-            : 0;
-
-        $mitjanaGolsRebutsSenseJugador = $partitsSenseJugador->count() > 0
-            ? $partitsSenseJugador->sum('gols_contra') / $partitsSenseJugador->count()
-            : 0;
-
-        // MINUTS PER GOL
         $minutsPerGol = ($golsJugador > 0 && $minutsTotals > 0)
             ? round($minutsTotals / $golsJugador, 2)
             : null;
 
+        $golsFavorAmb = $estadistiques->sum('gols_favor_jec');
+        $golsContraAmb = $estadistiques->sum('gols_contra_jec');
+        $difGolsAmb = $estadistiques->sum('dif_gols_jec');
+
+        // COMPARATIVA
+        $mitjanaGolsAmbJugador = ($minutsTotals > 0)
+        ? round(($golsFavorAmb * 95) / $minutsTotals, 2)
+        : null;
+
+        $mitjanaGolsRebutsAmb = ($minutsTotals > 0)
+        ? round(($golsContraAmb * 95) / $minutsTotals, 2)
+        : null;
+
+        $mitjanaGolsFavorEquip = $partitsJugatsEquipats->count() > 0
+        ? round($partitsJugatsEquipats->sum('gols_favor') / $partitsJugatsEquipats->count(), 2)
+        : null;
+
+    $mitjanaGolsContraEquip = $partitsJugatsEquipats->count() > 0
+        ? round($partitsJugatsEquipats->sum('gols_contra') / $partitsJugatsEquipats->count(), 2)
+        : null;
+
+
+
+
         return response()->json([
             'jugador' => $jugador,
             'resum' => [
-                'mitjana_punts_presencia' => round($mitjanaPuntsAmbJugador, 2),
-                'mitjana_punts_titular' => round($mitjanaPuntsTitular, 2),
-                'mitjana_punts_camp' => round($mitjanaPuntsCamp, 2),
-                'mitjana_punts_equip' => round($mitjanaPuntsEquip, 2),
+                'partits_jugats' => $partitsJugats,
+                'partits_titular' => $partitsTitular,
+                'minuts_totals' => $minutsTotals,
+                'minuts_per_partit' => $minutsPerPartit,
+                'percentatge_minuts' => $percentatgeMinuts,
+
+                'mitjana_punts_presencia' => $mitjanaPuntsPresencia,
+                'mitjana_punts_titular' => $mitjanaPuntsPresenciaTitular,
+                'mitjana_punts_camp' => $mitjanaPuntsPresenciaAlCamp,
+                'mitjana_punts_equip' => $mitjanaPuntsEquip,
 
                 'gols_jugador' => $golsJugador,
                 'minuts_per_gol' => $minutsPerGol,
-
                 'gols_favor_jec' => $golsFavorAmb,
                 'gols_contra_jec' => $golsContraAmb,
                 'dif_gols_jec' => $difGolsAmb,
 
-                'mitjana_gols_partit_amb' => round($mitjanaGolsAmbJugador, 2),
-                'mitjana_gols_partit_sense' => round($mitjanaGolsSenseJugador, 2),
-
-                'mitjana_gols_rebuts_amb' => round($mitjanaGolsRebutsAmbJugador, 2),
-                'mitjana_gols_rebuts_sense' => round($mitjanaGolsRebutsSenseJugador, 2),
+                'mitjana_gols_partit_amb' => $mitjanaGolsAmbJugador,
+                'mitjana_gols_favor_equip' => $mitjanaGolsFavorEquip,
+                'mitjana_gols_rebuts_amb' => $mitjanaGolsRebutsAmb,
+                'mitjana_gols_contra_equip' => $mitjanaGolsContraEquip,
             ]
         ]);
     }
+
+    public function jugadorsAmbEstadistiques($equipId)
+{
+    $jugadors = \App\Models\Jugador::where('equip_id', $equipId)
+        ->with(['estadistiques.partit']) // carrega estadístiques i els seus partits
+        ->get();
+
+    return response()->json($jugadors);
+}
+
 
 }

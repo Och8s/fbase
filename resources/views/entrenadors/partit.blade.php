@@ -1,72 +1,109 @@
 @extends('layouts.app')
+{{-- javi --}}
 
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/entrenadors/partit.css') }}?v=1.0">
+@endsection
 @section('content')
-<div class="container mt-4">
-    <div class="container mt-4">
-        <h4 id="titolPartit" class="mb-3"></h4>
+<div class="container mt-4" id="info-partit">
+    <div id="titolLogoContainer">
+        <img src="{{ asset('imagesGeneral/logoEscola.png') }}" alt="Logo Escola" class="logo-escola">
+        <h4 id="titolPartit" class="mb-0 gradient-text"></h4>
+    </div>
+</div>
+
+
+<!-- INFORMACIÓ DEL PARTIT -->
+<div id="infoPartit">
+    <h4>Dades generals del partit</h4>
+    <div class="mb-3">
+    <label class="form-label">Durada del partit (minuts)</label>
+    <input type="number" id="duradaPartitInput" class="form-control" min="60" max="120" value="">
+</div>
+
+
+    <!-- Primera fila: Gols -->
+    <div class="row mb-3" id="blocGols">
+        <p class="negreta">Resultat</p>
+                <div class="col-md-6">
+            <label class="form-label">Gols a favor</label>
+            <input type="number" id="golsFavor" class="form-control" min="0" max="25">
+            <div id="inputsGolsFavor" class="mt-2"></div>
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Gols en contra</label>
+            <input type="number" id="golsContra" class="form-control" min="0" max="25">
+            <div id="inputsGolsContra" class="mt-2"></div>
+        </div>
     </div>
 
-    <!-- INFORMACIÓ DEL PARTIT -->
-    <div id="infoPartit">
-        <h4>Dades generals del partit</h4>
-
-        <div class="row mb-3">
-            <div class="col-md-4">
-                <label class="form-label">Gols a favor</label>
-                <input type="number" id="golsFavor" class="form-control" min="0" max="25">
-                                <div id="inputsGolsFavor" class="mt-2"></div>
-            </div>
-
-            <div class="col-md-4">
-                <label class="form-label">Gols en contra</label>
-                <input type="number" id="golsContra" class="form-control" min="0" max="25">
-                <div id="inputsGolsContra" class="mt-2"></div>
-            </div>
-
-            <div class="col-md-4">
-                <label class="form-label">Canvis</label>
-                <input type="number" id="canvis" class="form-control" min="0" max="20">
-                <div id="inputsCanvis" class="mt-2"></div>
-            </div>
+    <!-- Segona fila: Canvis i Expulsions -->
+    <div class="row" id="blocInferior">
+        <p class="negreta">Incidències</p>
+        <div class="col-md-4">
+            <label class="form-label">Canvis</label>
+            <input type="number" id="canvis" class="form-control" min="0" max="20">
+            <div id="inputsCanvis" class="mt-2"></div>
         </div>
+
         <div class="col-md-4">
             <label class="form-label">Expulsions</label>
             <input type="number" id="expulsions" class="form-control" min="0" max="8">
             <div id="inputsExpulsions" class="mt-2"></div>
         </div>
-
     </div>
+
 
     <!-- TAULA DE JUGADORS -->
     <div class="mt-5" id="taulaJugadorsEstadistiques">
         <h4>Estadístiques dels jugadors</h4>
         <div class="table-responsive">
-            <table class="table table-bordered">
+            <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Jugador</th>
-                        <th>J</th>
-                        <th>T</th>
-                        <th>GOL</th>
-                        <th>E</th>
-                        <th>MIN JUG</th>
-                        <th>PEQ JJP</th>
-                        <th>PEQ JEC</th>
-                        <th>GOL FJC</th>
-                        <th>GOL CJC</th>
-                        <th>DIF GOL</th>
+                        <th rowspan="2">Jugador</th>
+                        <th rowspan="2">Jugat</th>
+                        <th rowspan="2">Titular</th>
+                        <th rowspan="2">Gols ⚽</th>
+                        <th rowspan="2">Expulsió 🟥</th>
+                        <th rowspan="2">Minuts ⏱</th>
+                        <th colspan="2">Punts Equip</th>
+                        <th colspan="3">Gols Equip</th>
+                    </tr>
+                    <tr>
+                        <th>Jug juga</th>
+                        <th>Jug al camp</th>
+                        <th>GF Jac</th>
+                        <th>GC Jac</th>
+                        <th>Dif Jac</th>
                     </tr>
                 </thead>
+
 
                 <tbody id="cosTaulaJugadors"></tbody>
             </table>
         </div>
     </div>
-    <div class="text-end mt-3">
-        <button id="guardarEstadistiques" class="btn btn-success">💾 Guardar dades</button>
+     <!-- Fora de la .row per evitar límits de columnes -->
+     <div class="d-flex justify-content-between align-items-center mt-4">
+        <div class="text-end">
+            <div id="resumEstat" class="alert alert-info d-inline-block mb-0">
+                Titulars: 0 | Minuts totals: 0
+            </div>
+        </div>
+        <div class="flex-grow-1 text-center">
+            <button id="guardarEstadistiques" class="btn btn-success">💾 Guardar dades</button>
+        </div>
     </div>
 
 </div>
+<div class="text-end mt-4 marges-laterals">
+    <a href="{{ url('/vista/entrenador') }}" class="btn btn-gris-suau2 me-3">
+        🔙 Torna a la vista principal
+    </a>
+</div>
+
 @endsection
 {{-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX script XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --}}
 
@@ -76,6 +113,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const partitId = window.location.pathname.split('/').pop();
     let jugadorsEquip = [];
     let minutsJugats = {};
+
+    let duradaPartit ;
+    const duradaPartitInput = document.getElementById('duradaPartitInput');
+
+    duradaPartitInput.addEventListener('input', () => {
+    const valor = parseInt(duradaPartitInput.value);
+    if (!isNaN(valor)) {
+        duradaPartit = valor;
+        actualitzaGolsJugadorEnCamp();   // Recalcula intervals, minuts, gols en camp...
+        actualitzaPEQJJP();              // Recalcula punts equip si ha jugat
+        actualitzaResumEstat();          // Actualitza el resum de titulars i minuts
+    }
+});
+
 
     const golsFavor = document.getElementById('golsFavor');
     const golsContra = document.getElementById('golsContra');
@@ -122,12 +173,21 @@ document.addEventListener("DOMContentLoaded", function () {
             cosTaula.innerHTML = '';
             minutsJugats = {};
 
+            // Ordena jugadors per dorsal (numèric)
+            jugadorsEquip.sort((a, b) => {
+                // Si algun no té dorsal, el posem al final
+                if (!a.dorsal) return 1;
+                if (!b.dorsal) return -1;
+                return a.dorsal - b.dorsal;
+            });
+
+
             jugadorsEquip.forEach(j => {
     minutsJugats[j.id] = 0;
 
     const fila = document.createElement('tr');
     fila.innerHTML = `
-        <td>${j.nom}</td>
+<td>${j.dorsal ? j.dorsal + ' ' : ''}${j.nom}</td>
         <td><input type="checkbox" name="jugador_${j.id}_j" class="form-check-input" /></td>
         <td><input type="checkbox" name="jugador_${j.id}_t" class="form-check-input titular-checkbox" data-id="${j.id}" /></td>
         <td><input type="number" name="jugador_${j.id}_gols" class="form-control" readonly /></td>
@@ -144,11 +204,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // AFEGIT: actualització PEQ JJP quan es marca/desmarca "J"
     const jCheckbox = fila.querySelector(`[name="jugador_${j.id}_j"]`);
     if (jCheckbox) {
-        jCheckbox.addEventListener('change', actualitzaPEQJJP);
+        jCheckbox.addEventListener('change', () => {
+            actualitzaPEQJJP();
+            actualitzaResumEstat(); // <- Aquí és on vols actualitzar també el resum
+        });
     }
 
-});
 
+});
+actualitzaResumEstat();
+        // FASE 2: Recol·lectar dades dels jugadors ******
 
         // CHECK BOX TITULARITAT
         // Recorrem tots els checkbox de titularitat (classe .titular-checkbox)
@@ -160,9 +225,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const minutsInput = document.querySelector(`[name="jugador_${id}_minuts"]`); // Input de minuts jugats
                 if (this.checked) {   // Si el jugador es marca com a titular...
                     if (!jugatCb.checked) jugatCb.checked = true; // ...automàticament també es marca com a "jugat"
-                    minutsJugats[id] += 95; // S’afegeixen 95 minuts al total del jugador
+                    minutsJugats[id] += duradaPartit ; // S’afegeixen 95 minuts al total del jugador
                 } else {            // Si es desmarca com a titular...
-                    minutsJugats[id] -= 95; // ...se li resten els 95 minuts
+                    minutsJugats[id] -= duradaPartit ; // ...se li resten els 95 minuts
                 }
                 // S’actualitza el camp visual de minuts jugats
                 if (minutsInput) minutsInput.value = minutsJugats[id];
@@ -170,6 +235,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 actualitzaPEQJJP();
                 // Torna a calcular les estadístiques en base als minuts jugats (gols en camp, diferència, etc.)
                 actualitzaGolsJugadorEnCamp();
+                // Actualitza Titulars y minuts
+                actualitzaResumEstat();
+
             });
         });
 
@@ -229,7 +297,7 @@ document.addEventListener("DOMContentLoaded", function () {
     bloc.classList.add('mb-2');
     bloc.innerHTML = `
         <label>Gol ${i + 1} - Minut:</label>
-        <input type="number" name="gol_favor_minut_${i}" class="form-control mb-1" min="1" max="95" />
+        <input type="number" name="gol_favor_minut_${i}" class="form-control mb-1" min="1" max="105" />
         <label>Jugador:</label>
     `;
 
@@ -280,7 +348,7 @@ document.addEventListener("DOMContentLoaded", function () {
             bloc.classList.add('mb-2');
             bloc.innerHTML = `
                 <label>Gol en contra ${i + 1} - Minut:</label>
-                <input type="number" name="gol_contra_minut_${i}" class="form-control" min="1" max="95" />
+                <input type="number" name="gol_contra_minut_${i}" class="form-control" min="1" max="105" />
             `;
             inputsGolsContra.appendChild(bloc);
 
@@ -301,7 +369,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // 🧹 Reset de minuts jugats
     jugadorsEquip.forEach(j => {
         const id = j.id;
-        minutsJugats[id] = document.querySelector(`[name="jugador_${id}_t"]`).checked ? 95 : 0;
+        minutsJugats[id] = document.querySelector(`[name="jugador_${id}_t"]`).checked ? duradaPartit  : 0;
         const inputMinuts = document.querySelector(`[name="jugador_${id}_minuts"]`);
         if (inputMinuts) inputMinuts.value = minutsJugats[id];
     });
@@ -321,7 +389,7 @@ document.addEventListener("DOMContentLoaded", function () {
         inputMinut.className = 'form-control';
         inputMinut.placeholder = 'Minut';
         inputMinut.min = 1;
-        inputMinut.max = 95;
+        inputMinut.max = 105;
         col1.appendChild(inputMinut);
 
         const col2 = document.createElement('div');
@@ -363,7 +431,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             if (nouId && nouId !== 'null' && minut) {
-                const suma = -(95 - minut); // restem minuts jugats
+                const suma = -(duradaPartit  - minut); // restem minuts jugats
                 actualitzaMinuts(nouId, suma);
                 anteriorSurt = nouId;
                 anteriorSumaSurt = -suma;
@@ -382,7 +450,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             if (nouId && nouId !== 'null' && minut) {
-                const suma = 95 - minut;
+                const suma = duradaPartit  - minut;
                 actualitzaMinuts(nouId, suma);
                 anteriorEntra = nouId;
                 anteriorSumaEntra = suma;
@@ -397,25 +465,33 @@ document.addEventListener("DOMContentLoaded", function () {
             gestionaEntra();
             actualitzaGolsJugadorEnCamp();
             actualitzaPEQJJP();
+            actualitzaResumEstat();
+
         });
 
         selectSurt.addEventListener('change', () => {
             gestionaSurt();
             actualitzaGolsJugadorEnCamp();
             actualitzaPEQJJP();
+            actualitzaResumEstat();
+
         });
 
         selectEntra.addEventListener('change', () => {
             gestionaEntra();
             actualitzaGolsJugadorEnCamp();
             actualitzaPEQJJP();
+            actualitzaResumEstat();
+
         });
     }
 
     actualitzaGolsJugadorEnCamp();
+    actualitzaResumEstat();
+
 });
 
-
+//   hhh
 expulsions.addEventListener('change', function () {
     const count = parseInt(this.value) || 0;
     inputsExpulsions.innerHTML = '';
@@ -424,7 +500,7 @@ expulsions.addEventListener('change', function () {
     jugadorsEquip.forEach(j => {
         const id = j.id;
         const tCheck = document.querySelector(`[name="jugador_${id}_t"]`);
-        const minutsBase = tCheck && tCheck.checked ? 95 : 0;
+        const minutsBase = tCheck && tCheck.checked ? duradaPartit  : 0;
         minutsJugats[id] = minutsBase;
 
         const inputMinuts = document.querySelector(`[name="jugador_${id}_minuts"]`);
@@ -448,7 +524,7 @@ expulsions.addEventListener('change', function () {
         inputMinut.className = 'form-control';
         inputMinut.placeholder = 'Minut';
         inputMinut.min = 1;
-        inputMinut.max = 95;
+        inputMinut.max = 105 ;
         col1.appendChild(inputMinut);
 
         const col2 = document.createElement('div');
@@ -465,16 +541,22 @@ expulsions.addEventListener('change', function () {
         inputMinut.addEventListener('change', () => {
             actualitzaGolsJugadorEnCamp();
             actualitzaPEQJJP();
+            actualitzaResumEstat(); // ✅ AFEGIT
+
         });
 
         selectJugador.addEventListener('change', () => {
             actualitzaGolsJugadorEnCamp();
             actualitzaPEQJJP();
+            actualitzaResumEstat(); // ✅ AFEGIT
+
         });
     }
 
     // Força actualització després de generar les expulsions
     actualitzaGolsJugadorEnCamp();
+    actualitzaResumEstat();
+
 });
 
 
@@ -515,8 +597,8 @@ function actualitzaGolsJugadorEnCamp() {
 
         // Titularitat
         if (document.querySelector(`[name="jugador_${id}_t"]`)?.checked) {
-            intervals.push([1, 95]);
-            minutsJugats[id] = 95;
+            intervals.push([1, duradaPartit ]);
+            minutsJugats[id] = duradaPartit ;
         }
 
         // Canvis
@@ -527,16 +609,16 @@ function actualitzaGolsJugadorEnCamp() {
 
             if (!isNaN(minut)) {
                 if (surt == id) {
-                    const last = intervals.find(int => int[1] === 95);
+                    const last = intervals.find(int => int[1] === duradaPartit);
                     if (last) last[1] = minut;
-                    minutsJugats[id] -= (95 - minut);
+                    minutsJugats[id] -= (duradaPartit  - minut);
                 }
 
                 if (entra == id) {
                     const inici = minut + 1;
-                    if (inici <= 95) {
-                        intervals.push([inici, 95]);
-                        minutsJugats[id] += (95 - inici + 1);
+                    if (inici <= duradaPartit ) {
+                        intervals.push([inici, duradaPartit ]);
+                        minutsJugats[id] += (duradaPartit  - inici + 1);
                     }
                 }
 
@@ -558,7 +640,7 @@ function actualitzaGolsJugadorEnCamp() {
 
         if (!isNaN(minutExp) && jugadorExp) {
             const intervals = intervalsJugador[jugadorExp];
-            const last = intervals?.find(int => int[1] === 95);
+            const last = intervals?.find(int => int[1] === duradaPartit );
             if (last && minutExp < last[1]) {
                 last[1] = minutExp ;
 
@@ -618,49 +700,391 @@ function actualitzaGolsJugadorEnCamp() {
     });
 }
 
-document.getElementById('guardarEstadistiques').addEventListener('click', async function () {
-    for (const jugador of jugadorsEquip) {
-        const id = jugador.id;
-        const data = {
-            jugador_id: id,
-            partit_id: partitId,
-            partido_jugado: document.querySelector(`[name="jugador_${id}_j"]`)?.checked || false,
-            titular: document.querySelector(`[name="jugador_${id}_t"]`)?.checked || false,
-            gols_jugador: parseInt(document.querySelector(`[name="jugador_${id}_gols"]`)?.value || 0),
-            expulsio: parseInt(document.querySelector(`[name="jugador_${id}_expulsio"]`)?.value || 0),
-            minuts_jugats: parseInt(document.querySelector(`[name="jugador_${id}_minuts"]`)?.value || 0),
-            punts_equip_jjp: parseInt(document.querySelector(`[name="jugador_${id}_jjp"]`)?.value || 0),
-            punts_equip_jec: parseInt(document.querySelector(`[name="jugador_${id}_jec"]`)?.value || 0),
-            gols_favor_jec: parseInt(document.querySelector(`[name="jugador_${id}_gfjec"]`)?.value || 0),
-            gols_contra_jec: parseInt(document.querySelector(`[name="jugador_${id}_gcjec"]`)?.value || 0),
-            dif_gols_jec: parseInt(document.querySelector(`[name="jugador_${id}_dif"]`)?.value || 0),
-        };
+function actualitzaResumEstat() {
+    let titulars = 0;
+    let minutsTotals = 0;
 
-        try {
-            const response = await fetch('/api/estadistiques', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                },
-                credentials: 'include',
-                body: JSON.stringify(data)
+    jugadorsEquip.forEach(j => {
+        const t = document.querySelector(`[name="jugador_${j.id}_t"]`);
+        const m = document.querySelector(`[name="jugador_${j.id}_minuts"]`);
+        if (t?.checked) titulars++;
+        if (m?.value) minutsTotals += parseInt(m.value) || 0;
+    });
+
+    const resum = document.getElementById('resumEstat');
+
+    // ❌ Elimina qualsevol classe de color anterior
+    resum.classList.remove('alert-info', 'alert-danger', 'alert-success');
+
+if (titulars === 11 && minutsTotals === (11 * duradaPartit)) {
+        resum.classList.add('alert-success');
+        resum.textContent = `Titulars: ${titulars} | Minuts totals: ${minutsTotals} 🆗`;
+    } else {
+        resum.classList.add('alert-danger');
+        resum.textContent = `⚠️ Titulars: ${titulars} | Minuts totals: ${minutsTotals}`;
+    }
+}
+
+
+
+
+
+//*******************************************************************************
+
+
+document.getElementById('guardarEstadistiques').addEventListener('click', async () => {
+    const valid = await validaFormulari();
+    if (valid) {
+        await guardarDades();
+    }
+});
+
+async function validaFormulari() {
+    const numGolsFavor = parseInt(golsFavor.value) || 0;
+    const numGolsContra = parseInt(golsContra.value) || 0;
+    const numCanvis = parseInt(canvis.value) || 0;
+    const numExpulsions = parseInt(expulsions.value) || 0;
+
+    // Validar gols a favor
+    for (let i = 0; i < numGolsFavor; i++) {
+        const minut = document.querySelector(`[name="gol_favor_minut_${i}"]`)?.value;
+        const jugador = document.querySelector(`[name="gol_favor_jugador_${i}"]`)?.value;
+            if (!minut || minut <= 0 || minut > duradaPartit || !jugador) {
+
+            await Swal.fire({
+                icon: 'warning',
+                title: 'Dades incompletes',
+            text: `⚠️ Gol a favor ${i + 1}: falta el jugador, el minut o el minut és massa alt.`,
+                confirmButtonText: 'OK'
             });
-
-            if (!response.ok) {
-                const error = await response.json();
-                console.error(`Error amb jugador ${id}:`, error);
-            } else {
-                const result = await response.json();
-                console.log(`Estadística creada:`, result.estadistica);
-            }
-        } catch (err) {
-            console.error(`Error de xarxa amb jugador ${id}:`, err);
+            return false;
         }
     }
 
-    alert("📊 Dades guardades!");
-});
+    // Validar gols en contra
+    for (let i = 0; i < numGolsContra; i++) {
+        const minut = document.querySelector(`[name="gol_contra_minut_${i}"]`)?.value;
+if (!minut || minut <= 0 || minut > duradaPartit) {
+
+            await Swal.fire({
+                icon: 'warning',
+                title: 'Dades incompletes',
+text: `⚠️ Gol en contra ${i + 1}: falta el minut o el minut és massa alt.`,
+                confirmButtonText: 'OK'
+            });
+            return false;
+        }
+    }
+
+    // Validar canvis
+   // Validar canvis
+        for (let i = 0; i < numCanvis; i++) {
+            const minut = document.querySelector(`[name="canvi_minut_${i}"]`)?.value;
+            const surt = document.querySelector(`[name="canvi_surt_${i}"]`)?.value;
+            const entra = document.querySelector(`[name="canvi_entra_${i}"]`)?.value;
+
+if (!minut || minut <= 0 || minut > duradaPartit || !surt || entra === '') {
+                await Swal.fire({
+                icon: 'warning',
+                title: 'Dades incompletes',
+text: `⚠️ Canvi ${i + 1}: falta el jugador, el minut o el minut és massa alt.`,
+                confirmButtonText: 'OK'
+            });
+            return false;
+            }
+        }
+
+
+    // Validar expulsions
+    for (let i = 0; i < numExpulsions; i++) {
+        const minut = document.querySelector(`[name="expulsio_minut_${i}"]`)?.value;
+        const jugador = document.querySelector(`[name="expulsio_jugador_${i}"]`)?.value;
+if (!minut || minut <= 0 || minut > duradaPartit || !jugador) {
+            await Swal.fire({
+                icon: 'warning',
+                title: 'Dades incompletes',
+text: `⚠️ Expulsió ${i + 1}: falta el jugador, el minut o el minut és massa alt.`,
+                confirmButtonText: 'OK'
+            });
+            return false;
+        }
+    }
+
+    // Assegurar                     ***
+    let errors = [];
+
+    jugadorsEquip.forEach(j => {
+        const jCheck = document.querySelector(`[name="jugador_${j.id}_j"]`);
+        const tCheck = document.querySelector(`[name="jugador_${j.id}_t"]`);
+        const minuts = parseInt(document.querySelector(`[name="jugador_${j.id}_minuts"]`)?.value || 0);
+
+        if (minuts > 0 && (!jCheck || !jCheck.checked)) {
+            errors.push(`⚠️ El jugador amb dorsal ${j.dorsal ?? ''} ${j.nom} té minuts però no està marcat com a jugat.`);
+        }
+
+        if (jCheck?.checked && minuts <= 0 && !tCheck?.checked) {
+    errors.push(`⚠️ El jugador amb dorsal ${j.dorsal ?? ''} ${j.nom} està marcat com a jugat però té ${minuts} minuts.`);
+}
+
+    });
+
+    if (errors.length > 0) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Revisa els jugadors',
+            html: errors.join('<br>'),
+            confirmButtonText: 'OK'
+        });
+        return false;
+    }
+
+
+    return true;
+}
+
+
+async function guardarDades() {
+    const jugadorsSeleccionats = [];
+    const gols = [];
+    const canvisList = [];
+    let totalTitulars = 0;
+    let totalMinuts = 0;
+
+    // 🔒 1. Demana el token CSRF primer
+    await fetch('/sanctum/csrf-cookie', { credentials: 'include' });
+
+    // 🔐 2. Llegeix el token des del cookie
+    const csrfToken = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('XSRF-TOKEN='))
+        ?.split('=')[1];
+
+    // ❗ Si no troba el token, avisa
+    if (!csrfToken) {
+        await Swal.fire({
+            icon: 'error',
+            title: 'Error de seguretat',
+            text: "❌ No s'ha pogut obtenir el token CSRF.",
+            confirmButtonText: 'OK'
+        });
+        return;
+    }
+
+    const headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'X-XSRF-TOKEN': decodeURIComponent(csrfToken),
+    };
+
+    // 🔍 Recol·lectar dades dels jugadors
+    jugadorsEquip.forEach(j => {
+        const jCheck = document.querySelector(`[name="jugador_${j.id}_j"]`);
+
+        const esTitular = document.querySelector(`[name="jugador_${j.id}_t"]`)?.checked || false;
+        const minuts = parseInt(document.querySelector(`[name="jugador_${j.id}_minuts"]`)?.value || 0);
+
+        if (minuts > 0 && jCheck?.checked) {
+            totalMinuts += minuts;
+            if (esTitular) totalTitulars++;
+
+            jugadorsSeleccionats.push({
+                jugador_id: j.id,
+                partit_id: partitId,
+                partido_jugado: true,
+                titular: esTitular,
+                gols_jugador: parseInt(document.querySelector(`[name="jugador_${j.id}_gols"]`)?.value || 0),
+                expulsio: parseInt(document.querySelector(`[name="jugador_${j.id}_expulsio"]`)?.value || 0),
+                minuts_jugats: minuts,
+                punts_equip_jjp: parseInt(document.querySelector(`[name="jugador_${j.id}_jjp"]`)?.value || 0),
+                punts_equip_jec: parseInt(document.querySelector(`[name="jugador_${j.id}_jec"]`)?.value || 0),
+                gols_favor_jec: parseInt(document.querySelector(`[name="jugador_${j.id}_gfjec"]`)?.value || 0),
+                gols_contra_jec: parseInt(document.querySelector(`[name="jugador_${j.id}_gcjec"]`)?.value || 0),
+                dif_gols_jec: parseInt(document.querySelector(`[name="jugador_${j.id}_dif"]`)?.value || 0),
+            });
+        }
+
+    });
+
+    // 🔍 Comprovem si el partit ja està marcat com jugat
+    let dadesPartit;
+    try {
+        const res = await fetch(`/api/partits/${partitId}`, {
+            credentials: 'include',
+            headers: { 'Accept': 'application/json' }
+        });
+        dadesPartit = await res.json();
+    } catch (err) {
+        await Swal.fire({
+            icon: 'error',
+            title: 'Error de connexió',
+            text: "❌ Error carregant dades del partit.",
+            confirmButtonText: 'OK'
+        });
+        console.error(err);
+        return;
+    }
+
+    if (dadesPartit.partit_jugat) {
+        const { isConfirmed } = await Swal.fire({
+            icon: 'question',
+            title: 'Partit ja jugat',
+            text: '⚠️ Aquest partit ja està marcat com a jugat. Vols sobreescriure les dades anteriors?',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, sobreescriu',
+            cancelButtonText: 'No, cancel·la'
+        });
+
+        if (!isConfirmed) return;
+
+        try {
+            const neteja = await fetch(`/api/partits/${partitId}/netejar-dades`, {
+                method: 'DELETE',
+                credentials: 'include',
+                headers
+            });
+            if (!neteja.ok) throw await neteja.json();
+        } catch (e) {
+            await Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: "❌ Error eliminant les dades anteriors.",
+                confirmButtonText: 'OK'
+            });
+            console.error(e);
+            return;
+        }
+    }
+
+    // 🔁 Gols i Canvis (igual que abans)
+    const numCanvis = parseInt(document.getElementById('canvis').value) || 0;
+    for (let i = 0; i < numCanvis; i++) {
+        const minut = parseInt(document.querySelector(`[name="canvi_minut_${i}"]`)?.value);
+        const entraId = document.querySelector(`[name="canvi_entra_${i}"]`)?.value;
+        const surtId = document.querySelector(`[name="canvi_surt_${i}"]`)?.value;
+        if (!isNaN(minut) && entraId && surtId) {
+            canvisList.push({
+                partit_id: partitId,
+                jugador_entra_id: entraId === 'null' ? null : entraId,
+                jugador_surt_id: surtId,
+                minut: minut
+            });
+        }
+    }
+
+    const numGolsFavor = parseInt(document.getElementById('golsFavor').value) || 0;
+    for (let i = 0; i < numGolsFavor; i++) {
+        const minut = parseInt(document.querySelector(`[name="gol_favor_minut_${i}"]`)?.value);
+        const jugadorId = document.querySelector(`[name="gol_favor_jugador_${i}"]`)?.value || null;
+        if (!isNaN(minut)) {
+            gols.push({
+                partit_id: partitId,
+                jugador_id: jugadorId !== 'null' ? jugadorId : null,
+                minut: minut,
+                tipo_gol: 'favor'
+            });
+        }
+    }
+
+    const numGolsContra = parseInt(document.getElementById('golsContra').value) || 0;
+    for (let i = 0; i < numGolsContra; i++) {
+        const minut = parseInt(document.querySelector(`[name="gol_contra_minut_${i}"]`)?.value);
+        if (!isNaN(minut)) {
+            gols.push({
+                partit_id: partitId,
+                jugador_id: null,
+                minut: minut,
+                tipo_gol: 'contra'
+            });
+        }
+    }
+
+    // ✅ ENVIAMENT: estadístiques
+    for (const jugador of jugadorsSeleccionats) {
+        try {
+            await fetch('/api/estadistiques', {
+                method: 'POST',
+                headers,
+                credentials: 'include',
+                body: JSON.stringify(jugador)
+            });
+        } catch (err) {
+            console.error(`❌ Error enviant estadística per jugador ${jugador.jugador_id}`, err);
+        }
+    }
+
+    // ✅ ENVIAMENT: gols
+    for (const gol of gols) {
+        try {
+            await fetch('/api/gols', {
+                method: 'POST',
+                headers,
+                credentials: 'include',
+                body: JSON.stringify(gol)
+            });
+        } catch (err) {
+            console.error('❌ Error enviant gol', err);
+        }
+    }
+
+    // ✅ ENVIAMENT: canvis
+    for (const canvi of canvisList) {
+        try {
+            await fetch('/api/canvis', {
+                method: 'POST',
+                headers,
+                credentials: 'include',
+                body: JSON.stringify(canvi)
+            });
+        } catch (err) {
+            console.error('❌ Error enviant canvi', err);
+        }
+    }
+
+    // ✅ UPDATE: marquem partit com jugat
+    try {
+        await fetch(`/api/partits/${partitId}`, {
+            method: 'PUT',
+            headers,
+            credentials: 'include',
+            body: JSON.stringify({
+                gols_favor: parseInt(document.getElementById('golsFavor').value),
+                gols_contra: parseInt(document.getElementById('golsContra').value),
+                partit_jugat: true
+            })
+        });
+    } catch (err) {
+        alert("⚠️ Dades enviades però error actualitzant el partit.");
+        console.error(err);
+    }
+
+    try {
+    await fetch(`/api/partits/${partitId}`, {
+        method: 'PUT',
+        headers,
+        credentials: 'include',
+        body: JSON.stringify({
+            gols_favor: parseInt(document.getElementById('golsFavor').value),
+            gols_contra: parseInt(document.getElementById('golsContra').value),
+            partit_jugat: true
+        })
+    });
+
+    // ✅ Missatge de confirmació amb SweetAlert2
+    Swal.fire({
+        icon: 'success',
+        title: 'Dades desades!',
+        text: 'Les estadístiques s\'han guardat correctament.',
+        confirmButtonText: 'OK'
+    });
+
+} catch (err) {
+    alert("⚠️ Dades enviades però error actualitzant el partit.");
+    console.error(err);
+}
+
+
+}
+
 
 
 

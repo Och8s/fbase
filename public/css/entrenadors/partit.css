@@ -1,0 +1,387 @@
+/* General */
+body {
+    background-color: #f9fafb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  /* Contenidor principal */
+  .container {
+    background-color: white;
+    /* border-radius: 12px; */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem !important;
+    padding-bottom: 0.1rem !important;
+  }
+
+  /* Inputs i formularis */
+  .form-label {
+    font-weight: 600;
+    color: #003366;
+  }
+
+  .form-control {
+    border-radius: 6px;
+  }
+
+  /* Taula */
+  .table {
+    width: 100%;
+    table-layout: fixed;
+    margin-top: 1rem;
+  }
+
+  .table thead tr {
+  background: linear-gradient(90deg, #003366, #02538a);
+}
+
+.table thead th {
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+}
+
+
+  .table-bordered td,
+  .table-bordered th {
+    border: 1px solid #dee2e6;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Files zebra */
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+  }
+
+  /* Inputs dins de cel·les */
+  td input[type="text"],
+  td input[type="number"],
+  td select {
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  /* Botó guardar */
+  #guardarEstadistiques {
+    font-size: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  /* Resum de titulars i minuts */
+  #resumEstat {
+    background-color: #e3f2fd;
+    /* border-left: 5px solid #2196f3; */
+    color: #003366;
+    font-weight: 500;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+  }
+
+  /* Màrges de blocs dinàmics */
+  #inputsGolsFavor div,
+  #inputsGolsContra div,
+  #inputsCanvis div,
+  #inputsExpulsions div {
+    /* border-left: 3px solid #b3d7ff; */
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f7fbff;
+    border-radius: 4px;
+  }
+
+  h2, h4 {
+    color: #003366;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+
+  }
+
+  #titolPartit {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #003366;
+    margin-bottom: 0.5rem;
+
+  }
+
+
+  #blocGols,
+  #blocInferior {
+    margin-bottom: 0.5rem;
+  }
+
+  #blocInferior .form-label {
+    margin-bottom: 0.5rem;
+  }
+
+  #resumEstat {
+    margin-top: 0.5rem;
+  }
+  /* xxx */
+ #info-partit,
+ #infoPartit {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding-right: 1rem;
+}
+.marges-laterals {
+    margin-left: 2rem;
+    margin-right: 2.5rem;
+}
+  /* Mostra els blocs de gols a favor i en contra en línia */
+@media (min-width: 768px) {
+    #inputsGolsFavor > div,
+    #inputsGolsContra > div {
+      display: inline-block;
+      width: 48%;
+      margin-right: 2%;
+      vertical-align: top;
+    }
+  }
+
+  @media (min-width: 768px) {
+    #inputsCanvis > div {
+      display: inline-block;
+      width: 48%;
+      margin-right: 2%;
+      vertical-align: top;
+    }
+
+    #inputsCanvis .row > .col-md-4 {
+      width: 25%;
+      padding-right: 10px;
+      padding-left: 0;
+      float: left;
+    }
+
+    #inputsCanvis .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    #inputsExpulsions > div {
+      display: inline-block;
+      width: 48%;
+      margin-right: 2%;
+      vertical-align: top;
+    }
+
+    #inputsExpulsions .row > .col-md-6 {
+      width: 50%;
+      padding-right: 10px;
+      padding-left: 0;
+      float: left;
+    }
+
+    #inputsExpulsions .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    #inputsExpulsions .row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: nowrap;
+    }
+
+    #inputsExpulsions .col-md-6 {
+      width: 50%;
+      padding: 0;
+    }
+  }
+
+  #resumEstat {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0.5rem 0.5rem;
+    margin: 0.25em;
+    line-height: 1.5;
+}
+
+
+/* Estils específics per defecte (alert-info) */
+.alert-info#resumEstat {
+    background-color: #223456;
+    border: 1.5px solid #71b4e4;
+    color: white;
+}
+
+/* Estils per alerta verda */
+.alert-success#resumEstat {
+    background-color: #223456;
+    border: 2px solid #1bb4d6;
+    color: white;
+}
+
+/* Estils per alerta vermella */
+.alert-danger#resumEstat {
+ background: linear-gradient(90deg, #003366, #02538a);
+   border: 2px solid #eea229;
+
+    color: white;
+}
+
+
+.negreta {
+    font-weight: bold;
+    color: rgb(217, 135, 13);
+    text-align: center;
+    width: 100%;
+}
+
+/* Files zebra */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+}
+.table td input[type="text"],
+.table td input[type="number"],
+.table td select {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    text-align: center;
+    padding: 0;
+}
+#titolLogoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.logo-escola {
+    height: 5rem;
+    width: auto;
+    object-fit: contain;
+}
+
+.gradient-text {
+
+    background: linear-gradient(90deg, #003366, #0a6096);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+/* Alert info jugador */
+#info-partit {
+background: linear-gradient(90deg, #cc8f02, #f2cb05);
+}
+@media (max-width: 768px) {
+
+  .container {
+    padding: 1rem !important;
+  }
+
+  h2, h4, #titolPartit {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  #titolLogoContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo-escola {
+    height: 4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Taula amb scroll horitzontal */
+  .table-responsive {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  .table {
+    min-width: 900px; /* força scroll lateral en pantalles petites */
+  }
+
+  .table thead th,
+  .table tbody td {
+    font-size: 0.8rem;
+    padding: 0.3rem;
+    white-space: nowrap;
+  }
+
+  .dataTables_filter {
+    text-align: center;
+  }
+
+  /* Gràfics si s'apliquen */
+  .grafic-flex {
+    flex-direction: column;
+  }
+
+  .grafic-box {
+    width: 100%;
+    flex: 1 1 100%;
+  }
+
+  canvas#grafMinuts {
+    width: 90vw;
+    height: auto;
+  }
+
+  /* Indicació visual per desplaçar lateralment la taula */
+  .table-responsive::after {
+    content: "⬅️ Desplaça per veure més columnes";
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  /* Botó guardar centrat */
+  .d-flex.justify-content-between {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #resumEstat {
+    width: 100%;
+    text-align: center;
+  }
+
+  #guardarEstadistiques {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* Botó tornar */
+  .text-end.mt-4 {
+    text-align: center !important;
+  }
+
+  .text-end.mt-4 a.btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+  }
+}

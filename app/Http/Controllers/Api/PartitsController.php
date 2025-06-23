@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Partit;
+use App\Models\Gol;
+use App\Models\Canvi;
+use App\Models\Estadistica;
 
 class PartitsController extends Controller
 {
@@ -85,5 +88,19 @@ class PartitsController extends Controller
 
         return response()->json(['message' => 'Partit actualitzat completament', 'partit' => $partit]);
     }
+
+    public function netejarDadesAssociades($id)
+{
+    try {
+        // Esborrem estadístiques, gols i canvis del partit
+        Estadistica::where('partit_id', $id)->delete();
+        Gol::where('partit_id', $id)->delete();
+        Canvi::where('partit_id', $id)->delete();
+
+        return response()->json(['message' => 'Dades del partit eliminades correctament.']);
+    } catch (\Exception $e) {
+        return response()->json(['error' => 'Error eliminant dades del partit', 'debug' => $e->getMessage()], 500);
+    }
+}
 
 }

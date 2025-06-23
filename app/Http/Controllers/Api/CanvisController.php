@@ -15,7 +15,7 @@ class CanvisController extends Controller
     {
         $request->validate([
             'partit_id' => 'required|exists:partits,id',
-            'jugador_entra_id' => 'required|exists:jugadors,id',
+            'jugador_entra_id' => 'nullable|exists:jugadors,id', //  necessitem nullable per si no hi ha canvi
             'jugador_surt_id' => 'required|exists:jugadors,id',
             'minut' => 'required|integer|min:0|max:120',
         ]);
@@ -65,4 +65,14 @@ class CanvisController extends Controller
             'message' => 'Canvi eliminat correctament'
         ]);
     }
+
+    public function deleteByPartit($partitId) // no usada
+{
+    Canvi::where('partit_id', $partitId)->delete();
+
+    return response()->json([
+        'message' => 'Tots els canvis del partit han estat eliminats correctament.'
+    ]);
+}
+
 }

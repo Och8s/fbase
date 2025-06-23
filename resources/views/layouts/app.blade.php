@@ -16,7 +16,8 @@
 
         <!-- Styles -->
         @livewireStyles
-        @yield('scripts')
+        @yield('styles') <!-- ✅ Aquí sí va el teu CSS -->
+
 
     </head>
     <body class="font-sans antialiased">
@@ -48,5 +49,10 @@
         @stack('modals')
 
         @livewireScripts
+        @yield('scripts')
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
     </body>
 </html>

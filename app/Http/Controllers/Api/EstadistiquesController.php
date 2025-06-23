@@ -84,4 +84,15 @@ class EstadistiquesController extends Controller
             'message' => 'Estadística eliminada correctament'
         ]);
     }
+
+    public function deleteByPartit($partitId) // no usada
+{
+    Estadistica::where('partit_id', $partitId)->delete();
+
+    return response()->json([
+        'message' => 'Totes les estadístiques del partit han estat eliminades.'
+    ]);
+}
+
+
 }

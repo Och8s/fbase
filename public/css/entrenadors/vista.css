@@ -1,45 +1,237 @@
-/* Estilo para botones de jugadores */
-.btn-jugador {
-    display: inline-block;
-    background-color: #007bff !important; /* Azul Bootstrap */
-    color: #fff !important;
-    border: none;
-    border-radius: 50%; /* Hace el botón redondo */
-    width: 80px;
-    height: 80px;
-    text-align: center;
-    line-height: 80px;
-    font-weight: bold;
-    margin: 5px;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
+
+/* body */
+body{
+    padding: 10px;
 }
+
+/* Contenedor principal */
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+
+
+/* Lista de jugadores */
+#llistatJugadors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Botón de jugador */
+.btn-jugador {
+    flex: 1 1 calc(20% - 15px); /* 100% / 5 = 20% */
+    max-width: calc(20% - 15px);
+    min-width: 140px;
+    height: 120px;
+    background: linear-gradient(145deg, #3a7bd5, #00d2ff);
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .btn-jugador:hover {
-    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(145deg, #348ac7, #00c6ff);
 }
 
-/* Estilo para el desplegable de partidos */
-#partitsSelect {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 15px;
-}
 
-/* Estilo para el botón de estadísticas del equipo */
+
+
 #btnEstadisticaEquip {
-    background-color: #28a745; /* Verde Bootstrap */
-    color: #fff;
-    padding: 10px 20px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #003366, #007acc);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
     border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto 2rem auto; /* 👈 afegit marge superior */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s, background-color 0.3s;
 }
+
 
 #btnEstadisticaEquip:hover {
-    background-color: #218838; /* Verde más oscuro al pasar el ratón */
+    background: linear-gradient(135deg, #002244, #005f99);
+    transform: scale(1.08);
+}
+
+
+
+h4 {
+    font-size: 1.5rem; /* Pots ajustar la mida a 1.75rem o 2rem si vols més gran */
+    color: #003366;     /* Blau marí */
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.container {
+    padding: 2rem !important; /* padding a tots costats amb !important per sobrescriure */
+}
+.titol-informes {
+    margin-top: 4.5rem; /* Ajustable segons necessites */
+    margin-bottom: 0.5rem;
+}
+#btnEnviarInformes {
+    margin-top: 2rem; /* o ajusta com vulguis */
+}
+.jugadors-container,
+.partits-container {
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+@media (max-width: 768px) {
+    .d-flex {
+        flex-direction: column;
+    }
+
+    .jugadors-container,
+    .partits-container {
+        width: 100% !important;
+    }
+     .jugadors-container,
+    .partits-container {
+        width: 100% !important;
+    }
+
+    .btn-jugador {
+        max-width: 30%;
+    }
+}
+/* Estil del bloc d'informació de l'equip */
+#infoEquip {
+    padding: 0 !important;
+    /* margin: 0 !important; */
+    background: none !important;
+    box-shadow: none !important;
+    margin-bottom: 2rem;
+}
+
+/* Títol amb efecte gradient més gran */
+#infoEquipText {
+    font-size: 2.5rem; /* 👈 més gran */
+    font-weight: 700;
+    background: linear-gradient(90deg, #003366, #0a6096);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* Títol amb efecte gradient */
+.gradient-text {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #003366, #0a6096);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+.partit-select {
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    background-color: #f0f7ff;
+    border: 2px solid #0a6096;
+    color: #003366;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: border 0.3s;
+}
+
+.partit-select:focus {
+    border-color: #21a0df;
+    outline: none;
+}
+.btn-jugador .nom {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 0rem;           /* Abans 0.25rem */
+    line-height: 1;
+}
+
+.btn-jugador .cognoms {
+    font-size: 1.2rem;
+    color: #e0f7ff;
+    margin-top: 0.2rem;         /* Afegim una mica d'espai */
+    line-height: 1.1;
+}
+.btn-jugador .dorsal {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.btn-enviar-informes {
+    width: 100%;
+    max-width: 180px;
+    padding: 0.8rem;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #e3b727, #ebda1d);
+    color: #003366;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid #c1a200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto 0 auto;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+    text-align: center;
+}
+
+.btn-enviar-informes:hover {
+    background: linear-gradient(135deg, #d4aa00, #c3a300);
+    transform: scale(1.05);
+    color: #fff;
+}
+
+.btn-enviar-informes .emoji {
+    font-size: 2rem;
+}
+
+.btn-enviar-informes .text {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.jugadors-container {
+    width: 72%;
+    padding-right: 2rem; /* espai entre jugadors i la línia */
+    border-right: 2px solid #d0d7de; /* línia separadora suau */
+    margin-right: 2rem; /* separació de la línia al contenidor dret */
+    padding-bottom: 1.5rem;
+
+}
+.partits-container {
+    width: 72%;
+    padding-right: 2rem; /* espai entre jugadors i la línia */
+    border-right: 2px solid #d0d7de; /* línia separadora suau */
+
+}
+.logo-escola {
+    height: 5rem;
+    width: auto;
+    object-fit: contain;
+    margin-right: 1.3rem;
 }

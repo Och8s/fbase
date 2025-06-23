@@ -51,6 +51,9 @@ Route::middleware(['auth:sanctum', 'isEntrenador'])->group(function () {
     // Vista jugador (com la veu l’entrenador)
     Route::get('jugadors/{id}', [JugadorsController::class, 'vistaEntrenador']);
 
+    Route::get('/equips/{equipId}/jugadors/estadistiques', [JugadorsController::class, 'jugadorsAmbEstadistiques']);
+
+
     // EQUIPS (lectura)
     Route::get('equips', [EquipsController::class, 'index']);
     Route::get('equips/{id}', [EquipsController::class, 'show']);// dades generals d'un equip
@@ -75,7 +78,12 @@ Route::middleware(['auth:sanctum', 'isEntrenador'])->group(function () {
         return response()->json($equip);
     });
 
-
+    // finalment no utilitzades
+Route::delete('estadistiques/partit/{partitId}', [EstadistiquesController::class, 'deleteByPartit']);
+Route::delete('gols/partit/{partitId}', [GolsController::class, 'deleteByPartit']);
+Route::delete('canvis/partit/{partitId}', [CanvisController::class, 'deleteByPartit']);
+// AQUESTA ENGLOVA LES ALTRES... ho fara al model partit tot
+Route::delete('partits/{id}/netejar-dades', [PartitsController::class, 'netejarDadesAssociades']);
 
 });
 
@@ -96,4 +104,8 @@ Route::middleware('auth:sanctum')->get('debug-user', function (Request $request)
         'id' => $request->user()?->id,
         'rol' => $request->user()?->rol,
     ]);
+});
+
+Route::middleware(['auth:sanctum', 'isTutor'])->get('tutor/jugadors', function () {
+    return request()->user()->jugadors; // assumeix que el model User té una relació 'jugadors()'
 });
