@@ -11,14 +11,16 @@ class Jugador extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nom',
-        'cognoms',
-        'dni',
-        'data_naixement',
-        'dorsal',
-        'equip_id',
-        'genere',
-    ];
+    'nom',
+    'cognoms',
+    'dni',
+    'data_naixement',
+    'dorsal',
+    'equip_id',
+    'genere',
+    'docu_extranger', // Nou camp afegit
+];
+
 
     // Relación con Equip
     public function equip()
