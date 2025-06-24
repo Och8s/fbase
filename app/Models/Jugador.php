@@ -20,6 +20,7 @@ class Jugador extends Model
     'genere',
     'equip_id',
     'codi_fed',
+    'num_mut',
     'docu_extranger',
 ];
 
