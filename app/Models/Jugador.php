@@ -21,7 +21,6 @@ class Jugador extends Model
     'equip_id',
     'codi_fed',
     'num_mut',
-    'codi_mut',
     'met_pago',
     'conta_bancaria',
     'foto',
