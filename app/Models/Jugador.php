@@ -22,8 +22,10 @@ class Jugador extends Model
     'codi_fed',
     'num_mut',
     'met_pago',
+    'conta_bancaria',
     'docu_extranger',
 ];
+
 
 
 
