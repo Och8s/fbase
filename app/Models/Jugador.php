@@ -19,8 +19,10 @@ class Jugador extends Model
     'dorsal',
     'genere',
     'equip_id',
+    'codi_fed',
     'docu_extranger',
 ];
+
 
 
 
