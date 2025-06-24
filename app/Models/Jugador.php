@@ -10,7 +10,7 @@ class Jugador extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
+   protected $fillable = [
     'nom',
     'cognoms',
     'tipo_docu',
@@ -21,10 +21,15 @@ class Jugador extends Model
     'equip_id',
     'codi_fed',
     'num_mut',
+    'codi_mut',
     'met_pago',
     'conta_bancaria',
+    'foto',
     'docu_extranger',
+    'docu_complet',
 ];
+
+
 
 
 
