@@ -13,13 +13,15 @@ class Jugador extends Model
     protected $fillable = [
     'nom',
     'cognoms',
+    'tipo_docu',
     'dni',
     'data_naixement',
     'dorsal',
-    'equip_id',
     'genere',
-    'docu_extranger', // Nou camp afegit
+    'equip_id',
+    'docu_extranger',
 ];
+
 
 
     // Relación con Equip
