@@ -82,4 +82,11 @@ class User extends Authenticatable
          return $this->belongsToMany(Jugador::class, 'tutor_jugador', 'usuari_id', 'jugador_id');
      }
 
+        // Al model User
+    public function modalitats()
+    {
+        return $this->hasMany(Modalitat::class, 'coordinador_id');
+    }
+
+
 }
