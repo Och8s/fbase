@@ -11,7 +11,15 @@ class Equip extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nom', 'categoria_id', 'subcategoria_id', 'entrenador_id'];
+protected $fillable = [
+    'nom',
+    'categoria_id',
+    'subcategoria_id',
+    'entrenador_id',
+    'divisio',
+    'grup',
+    'codi_fed',
+];
 
     public function partits(): HasMany
     {
@@ -37,4 +45,9 @@ class Equip extends Model
     {
         return $this->belongsTo(Subcategoria::class);
     }
+    public function horaris()
+{
+    return $this->hasMany(Horari::class);
+}
+
 }
