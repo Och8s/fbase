@@ -18,5 +18,15 @@ class Categoria extends Model
     {
         return $this->belongsToMany(Modalitat::class, 'categoria_modalitat')->withTimestamps();
     }
+
+    public function equips()
+    {
+        return $this->hasMany(Equip::class);
+    }
+
+    public function subcategories()
+    {
+        return $this->hasMany(Subcategoria::class);
+    }
 }
 

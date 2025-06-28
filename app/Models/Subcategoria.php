@@ -9,11 +9,16 @@ class Subcategoria extends Model
 {
     use HasFactory;
 
-    protected $table = 'subcategories'; // 👈 important!
+    protected $table = 'subcategories';
     protected $fillable = ['nom', 'categoria_id'];
 
     public function categoria()
     {
         return $this->belongsTo(Categoria::class);
+    }
+
+    public function equips()
+    {
+        return $this->hasMany(Equip::class);
     }
 }
