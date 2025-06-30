@@ -88,5 +88,42 @@ class User extends Authenticatable
         return $this->hasMany(Modalitat::class, 'coordinador_id');
     }
 
+    // Relació molts-a-molts amb equips (pot ser principal o auxiliar)
+    public function equipsEntrenats()
+    {
+        return $this->belongsToMany(Equip::class, 'entrenador_equip', 'usuari_id', 'equip_id')
+                    ->withPivot('rol_ent')
+                    ->withTimestamps();
+    }
+    // para elegir uno u otro rol de entrenador...
+// $user = auth()->user();
+
+// // Tots els equips on és entrenador (principal o auxiliar)
+// $user->equipsEntrenats;
+
+// // Només equips on és auxiliar
+// $user->equipsEntrenats()->wherePivot('rol_ent', 'auxiliar')->get();
+
+
+// **** DONAR ACCES A EQUIPS PER ROLS
+// Només equips on és entrenador principal
+public function equipsComPrincipal()
+{
+    return $this->belongsToMany(Equip::class, 'entrenador_equip', 'usuari_id', 'equip_id')
+                ->withPivot('rol_ent')
+                ->wherePivot('rol_ent', 'principal')
+                ->withTimestamps();
+}
+
+// Només equips on és entrenador auxiliar
+public function equipsComAuxiliar()
+{
+    return $this->belongsToMany(Equip::class, 'entrenador_equip', 'usuari_id', 'equip_id')
+                ->withPivot('rol_ent')
+                ->wherePivot('rol_ent', 'auxiliar')
+                ->withTimestamps();
+}
+
+
 
 }

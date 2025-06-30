@@ -21,6 +21,7 @@ protected $fillable = [
     'codi_fed',
 ];
 
+
     public function partits(): HasMany
     {
         return $this->hasMany(Partit::class);
@@ -49,5 +50,25 @@ protected $fillable = [
 {
     return $this->hasMany(Horari::class);
 }
+
+    // Relació molts-a-molts amb entrenadors (pot ser principal o auxiliar)
+    public function entrenadors()
+    {
+        return $this->belongsToMany(User::class, 'entrenador_equip', 'equip_id', 'usuari_id')
+                    ->withPivot('rol_ent')
+                    ->withTimestamps();
+    }
+
+// $equip = Equip::find(1);
+
+// Entrenadors associats (amb rol_ent)
+// foreach ($equip->entrenadors as $entrenador) {
+//     echo $entrenador->name . ' - ' . $entrenador->pivot->rol_ent;
+// }
+public function entrenadorPrincipal()
+{
+    return $this->entrenadors()->wherePivot('rol_ent', 'principal');
+}
+
 
 }
