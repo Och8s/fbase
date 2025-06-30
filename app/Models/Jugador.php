@@ -71,6 +71,10 @@ class Jugador extends Model
         return $this->hasMany(Gol::class);
     }
 
+public function rebuts()
+{
+    return $this->hasMany(Rebut::class);
+}
 
 
 }
