@@ -16,10 +16,33 @@ class ProExercicisController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nom' => 'required|string|max:255',
+            'entrenador_id' => 'required|integer|exists:usuaris,id',
+            'titol' => 'required|string|max:255',
+            'eina' => 'required|string',
+            'objectiu_principal' => 'nullable|string',
             'descripcio' => 'nullable|string',
-            // afegeix altres camps si cal
+            'dibuix' => 'nullable|string',
+            'tasca_oberta' => 'nullable|integer|min:0|max:100',
+            'treball_tecnic' => 'nullable|integer|min:0|max:100',
+            'treball_tactic' => 'nullable|integer|min:0|max:100',
+            'treball_fisic' => 'nullable|integer|min:0|max:100',
+            'treball_cognitiu' => 'nullable|integer|min:0|max:100',
+            'fases_joc' => 'nullable|array',
+            'estat' => 'nullable|string|in:pendent,publicat,rebutjat',
+            'espai' => 'nullable|string',
+            'durada_total' => 'nullable|integer',
+            'durada_repeticio' => 'nullable|integer',
+            'num_jugadors' => 'nullable|integer',
+            'repeticions' => 'nullable|integer',
         ]);
+
+        if (!isset($validated['estat'])) {
+            $validated['estat'] = 'pendent';
+        }
+
+        if (isset($validated['fases_joc'])) {
+            $validated['fases_joc'] = json_encode($validated['fases_joc']);
+        }
 
         $proExercici = ProExercici::create($validated);
 
@@ -36,10 +59,29 @@ class ProExercicisController extends Controller
         $proExercici = ProExercici::findOrFail($id);
 
         $validated = $request->validate([
-            'nom' => 'sometimes|required|string|max:255',
+            'entrenador_id' => 'sometimes|integer|exists:usuaris,id',
+            'titol' => 'sometimes|required|string|max:255',
+            'eina' => 'sometimes|required|string',
+            'objectiu_principal' => 'nullable|string',
             'descripcio' => 'nullable|string',
-            // afegeix altres camps si cal
+            'dibuix' => 'nullable|string',
+            'tasca_oberta' => 'nullable|integer|min:0|max:100',
+            'treball_tecnic' => 'nullable|integer|min:0|max:100',
+            'treball_tactic' => 'nullable|integer|min:0|max:100',
+            'treball_fisic' => 'nullable|integer|min:0|max:100',
+            'treball_cognitiu' => 'nullable|integer|min:0|max:100',
+            'fases_joc' => 'nullable|array',
+            'estat' => 'nullable|string|in:pendent,publicat,rebutjat',
+            'espai' => 'nullable|string',
+            'durada_total' => 'nullable|integer',
+            'durada_repeticio' => 'nullable|integer',
+            'num_jugadors' => 'nullable|integer',
+            'repeticions' => 'nullable|integer',
         ]);
+
+        if (isset($validated['fases_joc'])) {
+            $validated['fases_joc'] = json_encode($validated['fases_joc']);
+        }
 
         $proExercici->update($validated);
 
