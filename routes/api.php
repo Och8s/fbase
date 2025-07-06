@@ -109,3 +109,22 @@ Route::middleware('auth:sanctum')->get('debug-user', function (Request $request)
 Route::middleware(['auth:sanctum', 'isTutor'])->get('tutor/jugadors', function () {
     return request()->user()->jugadors; // assumeix que el model User té una relació 'jugadors()'
 });
+use App\Http\Controllers\Api\ProExercicisController;
+use App\Http\Controllers\Api\ExercicisController;
+
+
+Route::middleware(['auth:sanctum', 'isEntrenador'])->group(function () {
+    // PROEXERCICIS
+    Route::get('proexercicis', [ProExercicisController::class, 'index']);
+    Route::post('proexercicis', [ProExercicisController::class, 'store']);
+    Route::get('proexercicis/{id}', [ProExercicisController::class, 'show']);
+    Route::put('proexercicis/{id}', [ProExercicisController::class, 'update']);
+    Route::delete('proexercicis/{id}', [ProExercicisController::class, 'destroy']);
+
+    // EXERCICIS
+    Route::get('exercicis', [ExercicisController::class, 'index']);
+    Route::post('exercicis', [ExercicisController::class, 'store']);
+    Route::get('exercicis/{id}', [ExercicisController::class, 'show']);
+    Route::put('exercicis/{id}', [ExercicisController::class, 'update']);
+    Route::delete('exercicis/{id}', [ExercicisController::class, 'destroy']);
+});
