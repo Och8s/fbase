@@ -70,5 +70,12 @@ public function entrenadorPrincipal()
     return $this->entrenadors()->wherePivot('rol_ent', 'principal');
 }
 
+// **** RELACIO Exercicis utilitzats per l'equip
+public function exercicis()
+{
+    return $this->belongsToMany(Exercici::class, 'equip_exercici', 'equip_id', 'exercici_id');
+}
+
+
 
 }

@@ -116,14 +116,34 @@ public function equipsComPrincipal()
 }
 
 // Només equips on és entrenador auxiliar
+const ROL_AUXILIAR = 'auxiliar';
+
 public function equipsComAuxiliar()
 {
     return $this->belongsToMany(Equip::class, 'entrenador_equip', 'usuari_id', 'equip_id')
                 ->withPivot('rol_ent')
-                ->wherePivot('rol_ent', 'auxiliar')
+                ->wherePivot('rol_ent', self::ROL_AUXILIAR)
                 ->withTimestamps();
 }
 
 
+// **** R3LACIÓ AMB DELS ENTRENADORS I COORDINADORS AMB ELS EXERCICIS
+// Exercicis proposats com a entrenador
+public function proExercicis()
+{
+    return $this->hasMany(ProExercici::class, 'entrenador_id');
+}
+
+// Exercicis validats com a coordinador
+public function exercicisComCoordinador()
+{
+    return $this->hasMany(Exercici::class, 'coordinador_id');
+}
+
+// Exercicis creats com a entrenador
+public function exercicisComEntrenador()
+{
+    return $this->hasMany(Exercici::class, 'entrenador_id');
+}
 
 }
