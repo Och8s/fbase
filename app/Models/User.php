@@ -146,4 +146,10 @@ public function exercicisComEntrenador()
     return $this->hasMany(Exercici::class, 'entrenador_id');
 }
 
+// Reunions Users
+public function reunions()
+{
+    return $this->belongsToMany(Reunio::class, 'reunio_usuari');
+}
+
 }
