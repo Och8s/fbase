@@ -9,7 +9,8 @@ use App\Http\Controllers\Api\{
     CanvisController,
     JugadorsController,
     UsuarisController,
-    EquipsController
+    EquipsController,
+    PreSociController
 };
 
 // RUTA DE TEST USER
@@ -128,3 +129,7 @@ Route::middleware(['auth:sanctum', 'isEntrenador'])->group(function () {
     Route::put('exercicis/{id}', [ExercicisController::class, 'update']);
     Route::delete('exercicis/{id}', [ExercicisController::class, 'destroy']);
 });
+
+Route::put('/presocis/{id}/acceptar', [PreSociController::class, 'acceptar']);
+Route::put('/presocis/{id}/rebutjar', [PreSociController::class, 'rebutjar']);
+
