@@ -34,10 +34,11 @@ class User extends Authenticatable
         'password',
         'rol',
         'dni',
+        'telefon',
     ];
 
 
-    /**
+    /**git status---
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
