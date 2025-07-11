@@ -153,4 +153,19 @@ public function reunions()
     return $this->belongsToMany(Reunio::class, 'reunio_usuari');
 }
 
+// enviament coumnicats
+  public function comunicatsEnviats()
+    {
+        return $this->hasMany(Comunicat::class, 'usuari_id');
+    }
+
+    public function comunicatsRebuts()
+    {
+        return $this->belongsToMany(
+            Comunicat::class,
+            'comunicat_usuari',
+            'usuari_id',
+            'comunicat_id'
+        )->withPivot('llegit', 'llegit_at', 'email_enviat', 'email_enviat_at', 'created_at');
+    }
 }
