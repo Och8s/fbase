@@ -168,4 +168,11 @@ public function reunions()
             'comunicat_id'
         )->withPivot('llegit', 'llegit_at', 'email_enviat', 'email_enviat_at', 'created_at');
     }
+
+    // relacio taula entrenador
+    public function entrenador()
+{
+    return $this->hasOne(Entrenador::class);
+}
+
 }
