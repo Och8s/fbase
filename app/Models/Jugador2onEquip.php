@@ -3,13 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
 use Illuminate\Database\Eloquent\Model;
-class Jugador1erEquip extends Model
+
+class Jugador2onEquip extends Model
 {
     use HasFactory;
 
-    protected $table = 'jugadors_1er_equip';
+    protected $table = 'jugadors_2on_equip';
 
     protected $fillable = [
         'nom',
@@ -27,11 +27,9 @@ class Jugador1erEquip extends Model
         'docu_extranger',
         'docu_complet',
         'procedencia',
-        'equips_anteriors',
     ];
 
     protected $casts = [
-        'equips_anteriors' => 'array',
         'docu_extranger' => 'boolean',
         'docu_complet' => 'boolean',
     ];
