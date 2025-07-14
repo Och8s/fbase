@@ -76,5 +76,18 @@ public function rebuts()
     return $this->hasMany(Rebut::class);
 }
 
+// Relació amb la preinscripció (1 a 1, opcional)
+// per dni
+public function preinscripcio()
+{
+    return $this->hasOne(PreInscripcioJugador::class, 'dni', 'dni');
+}
+
+
+// Relació amb la documentació (1 a 1)
+public function documentacio()
+{
+    return $this->hasOne(DocumentacioJugador::class);
+}
 
 }
