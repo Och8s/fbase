@@ -56,16 +56,24 @@ Route::middleware([
     });
 
     // Vista detall d’un jugador per TUTOR
-
    Route::get('/vista/jugador/{id}', function ($id) {
     $user = request()->user();
-    $jugadorsCount = $user->jugadors()->count(); // comptar jugadors del tutor
+
+    // Comprovació: aquest jugador està associat al tutor?
+    $jugador = $user->jugadors()->where('jugadors.id', $id)->first();
+
+    if (!$jugador) {
+        abort(403, 'No tens accés a aquest jugador.');
+    }
+
+    $jugadorsCount = $user->jugadors()->count();
 
     return view('tutors.jugador', [
         'jugadorId' => $id,
         'jugadorsCount' => $jugadorsCount,
     ]);
-})->middleware('isTutor')->name('tutors.jugador');
+})->middleware(['isTutor'])->name('tutors.jugador');
+
 
 
 

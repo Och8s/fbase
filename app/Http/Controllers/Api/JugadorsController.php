@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Jugador;
 use App\Models\Estadistica;
 use App\Models\Partit;
+use App\Models\User;
 
 
 
@@ -38,7 +40,15 @@ class JugadorsController extends Controller
      */
     public function vistaTutor($id)
     {
-        $jugador = Jugador::with('equip')->findOrFail($id);
+    /** @var \App\Models\User $user */
+$user = Auth::user();
+
+    // ✅ Només jugadors associats a aquest tutor
+    $jugador = $user->jugadors()->where('jugadors.id', $id)->with('equip')->first();
+
+    if (!$jugador) {
+        return response()->json(['error' => 'No tens accés a aquest jugador'], 403);
+    }
         $estadistiques = Estadistica::where('jugador_id', $id)->get();
 
         if ($estadistiques->isEmpty()) {

@@ -9,6 +9,7 @@ use App\Models\Gol;
 use App\Models\Canvi;
 use App\Models\Estadistica;
 
+
 class PartitsController extends Controller
 {
     /**
