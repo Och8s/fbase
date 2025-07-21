@@ -1,0 +1,132 @@
+/* General */
+body {
+    background-color: #fafafa;
+    color: #1a1a1a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    color: #1b1b18;
+}
+
+/* Menú de navegació */
+.menu-public {
+    background-color: #1b1b18;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.menu-public ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.menu-public li {
+    position: relative;
+}
+
+.menu-public a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.menu-public a:hover {
+    background-color: #333;
+    border-radius: 5px;
+}
+
+/* Desplegable */
+.desplegableContingut {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    z-index: 10;
+    border-radius: 0.25rem;
+    padding: 0.5rem 0;
+}
+
+.desplegable:hover .desplegableContingut {
+    display: block;
+}
+
+.desplegableContingut a {
+    padding: 0.5rem 1rem;
+    text-align: left;
+}
+
+.linea {
+    border: none;
+    border-top: 2px solid white;
+    margin: 0.5rem 0;
+}
+
+/* Seccions d'introducció */
+.Introduccio1, .Introduccio2 {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.Apartat {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 30%;
+    min-width: 250px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.Apartat:hover {
+    transform: translateY(-5px);
+}
+
+.MedioA img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.MedioA button {
+    background-color: #1b1b18;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s;
+}
+
+.MedioA button:hover {
+    background-color: #000;
+}
+
+.MedioA p {
+    font-size: 1rem;
+    line-height: 1.5;
+}

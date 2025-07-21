@@ -48,6 +48,7 @@
                 Visita la nostra web
                 </a>
 
+
                 <a href="{{ route('login') }}"
                 class="inline-block bg-gray-500 text-white px-6 py-2 rounded-sm hover:bg-gray-600 transition-all">
                 Accedeix al teu perfil
