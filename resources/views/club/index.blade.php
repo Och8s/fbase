@@ -93,7 +93,7 @@
         <div class="Apartat">
             <div class="MedioA">
                 <a href="{{ route('club.noticies') }}"><button>NOTÍCIES</button></a>
-                <img src="{{ asset('imagesGeneral/noticies.webp') }}" alt="Notícies">
+                <img src="{{ asset('images/club/noticies.webp') }}" alt="Notícies">
             </div>
             <div class="MedioA">
                 <p>Notícies més importants referents al club de Futbol Vila-seca i del seu entorn.</p>
@@ -103,7 +103,7 @@
         <div class="Apartat">
             <div class="MedioA">
                 <a href="{{ route('club.qui') }}"><button>QUI SOM?</button></a>
-                <img src="{{ asset('imagesGeneral/presentacion.jpg') }}" alt="Qui som?">
+                <img src="{{ asset('images/club/presentacion.jpg') }}" alt="Qui som?">
             </div>
             <div class="MedioA">
                 <p>Introducció al nostre club, filosofia i vinculació amb el poble.</p>
@@ -113,7 +113,7 @@
         <div class="Apartat">
             <div class="MedioA">
                 <a href="{{ route('club.objectius') }}"><button>OBJECTIUS</button></a>
-                <img src="{{ asset('imagesGeneral/Objetivos.jpg') }}" alt="Objectius">
+                <img src="{{ asset('images/club/Objetivos.jpg') }}" alt="Objectius">
             </div>
             <div class="MedioA">
                 <p>Exposem els objectius del nostre club i de la nostra escola de futbol base.</p>
@@ -125,7 +125,7 @@
         <div class="Apartat">
             <div class="MedioA">
                 <a href="{{ route('club.events') }}"><button>ACTIVITATS I EVENTS</button></a>
-                <img src="{{ asset('imagesGeneral/Campus.jpg') }}" alt="Events">
+                <img src="{{ asset('images/club/Campus.jpg') }}" alt="Events">
             </div>
             <div class="MedioA">
                 <p>Informació sobre els esdeveniments de la temporada 24/25.</p>
@@ -135,7 +135,7 @@
         <div class="Apartat">
             <div class="MedioA">
                 <a href="{{ route('club.soci') }}"><button>FES-TE'N SOCI</button></a>
-                <img src="{{ asset('imagesGeneral/soci.jpg') }}" alt="Fes-te soci">
+                <img src="{{ asset('images/club/soci.jpg') }}" alt="Fes-te soci">
             </div>
             <div class="MedioA">
                 <p>Fes-te soci del Vila-seca i participa activament al club.</p>
@@ -145,7 +145,7 @@
         <div class="Apartat">
             <div class="MedioA">
                 <a href="{{ route('club.accesSoci') }}"><button>NOTIFICACIONS PER A SOCIS</button></a>
-                <img src="{{ asset('imagesGeneral/noti.jpg') }}" alt="Notificacions">
+                <img src="{{ asset('images/club/noti.jpg') }}" alt="Notificacions">
             </div>
             <div class="MedioA">
                 <p>Accés exclusiu per a socis amb notificacions i enquestes.</p>
