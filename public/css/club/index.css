@@ -246,3 +246,16 @@ header h1 {
 .MedioA button:hover {
     background-color: #001f4d; /* blau més fosc al hover */
 }
+.footer-public .social-icons a {
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.footer-public .social-icons a:hover {
+    transform: scale(1.2);
+    color: #fcd000; /* o groc/blau del club */
+}
+

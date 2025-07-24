@@ -169,10 +169,13 @@
 <footer class="footer-public">
     <p>📞 606 27 31 73 | ✉️ administracio@cfvila-seca.com</p>
     <div class="social-icons">
-        <a href="https://facebook.com" target="_blank">Facebook</a> |
-        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
     </div>
 </footer>
+
 
 
 @endsection
