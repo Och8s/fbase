@@ -12,13 +12,20 @@
 <div class="container mt-4">
     {{--LOGO I ACCES  --}}
     <div class="logo-acces">
-        <div class="logo-container">
-            <img src="{{ asset('imagesGeneral/LOGO-NEW01.png') }}" alt="Logo" class="logo-escola">
-        </div>
-        <div class="acces-usuaris">
-            <a href="{{ route('login') }}" class="btn-acces">Accés Usuaris</a>
-        </div>
+
+    <div class="logo-escola-container">
+        <img src="{{ asset('imagesGeneral/escolaLogoPngWhite.png') }}" alt="Logo Escola" class="logo-escola-centre">
     </div>
+    <div class="logo-container">
+        <img src="{{ asset('imagesGeneral/LOGO-NEW01.png') }}" alt="Logo Club" class="logo-escola">
+    </div>
+
+
+    <div class="acces-usuaris">
+        <a href="{{ route('login') }}" class="btn-acces">Accés Usuaris</a>
+    </div>
+</div>
+
 
     <nav class="nav-publica">
         <hr class="linea">

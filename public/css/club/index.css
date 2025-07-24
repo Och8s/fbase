@@ -34,9 +34,16 @@ header h1 {
 }
 
 .logo-escola {
-    height: 80px;
+    height: 100px;
     width: auto;
 }
+.logo-escola-centre {
+    height: 100px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 
 .acces-usuaris {
     margin: 0;
@@ -76,8 +83,17 @@ header h1 {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* ✅ No permet trencar la línia */
+    overflow-x: auto;   /* ✅ Opcional, per a scroll si no cap */
 }
+.nav-publica a {
+    padding: 0.5rem 0.75rem; /* abans tenies 0.5rem 1rem */
+    font-size: 0.95rem; /* opcional per reduir lletra */
+}
+.nav-publica {
+    overflow-x: auto; /* si cal, afegeix scroll horitzontal */
+}
+
 
 .nav-publica li {
     position: relative;
