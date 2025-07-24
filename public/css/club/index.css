@@ -158,48 +158,57 @@ header h1 {
 }
 
 .Apartat {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    width: 30%;
-    min-width: 250px;
+    background-color: #fff;
+    border: 2px solid #a7b8cb;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 300px;
     padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .Apartat:hover {
-    transform: translateY(-5px);
-}
-
-.MedioA img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-    margin-bottom: 1rem;
+    transform: translateY(-8px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
 .MedioA button {
-    background-color: #1b1b18;
+    background-color: #003366;
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     font-size: 1rem;
-    margin-bottom: 0.5rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
     cursor: pointer;
-    border-radius: 0.25rem;
     transition: background-color 0.3s;
 }
 
 .MedioA button:hover {
-    background-color: #000;
+    background-color: #001f4d;
+}
+
+.MedioA img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
 }
 
 .MedioA p {
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0 0.5rem;
 }
+
 
 /* ===================== */
 /* PEU DE PÀGINA */
