@@ -1,0 +1,4 @@
+.nav-publica a.active {
+    color: #fcfcfb; /* groc */
+    background-color: transparent; /* per si hereta fons */
+}
