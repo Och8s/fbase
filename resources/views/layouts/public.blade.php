@@ -81,7 +81,11 @@
     <a href="{{ route('escola.accesEntrenador') }}">Accés Entrenador</a>
     <a href="{{ route('escola.accesCoordinador') }}">Accés Coordinador</a>
   </div>
-                <li class="desplegable"><a href="{{ route('primer.index') }}">PRIMER EQUIP</a>
+                <li class="desplegable"><a href="{{ route('primer.index') }}"
+   class="{{ request()->is('primer*') || request()->is('vista/general') ? 'active' : '' }}">
+   PRIMER EQUIP
+</a>
+
                     <div class="desplegableContingut">
                         <a href="{{ route('primer.plantilla') }}">Plantilla</a>
                         <a href="{{ route('primer.calendari') }}">Calendari</a>
@@ -90,12 +94,16 @@
                         <a href="{{ route('primer.classificacio') }}">Classificació</a>
                     </div>
                 </li>
-                <li class="desplegable"><a href="{{ route('segon.index') }}">SEGON EQUIP</a>
+<li class="desplegable">
+  <a href="{{ route('segon.index') }}"
+     class="{{ request()->is('segon*') ? 'active' : '' }}">
+     SEGON EQUIP
+  </a>
                     <div class="desplegableContingut">
                         <a href="{{ route('segon.plantilla') }}">Plantilla</a>
                         <a href="{{ route('segon.calendari') }}">Calendari</a>
                         <a href="{{ route('segon.jornada') }}">Jornada</a>
-                        <a href="{{ route('segon.resultat') }}">Resultats</a>
+<a href="{{ route('segon.resultats') }}">Resultats</a>
                         <a href="{{ route('segon.classificacio') }}">Classificació</a>
                     </div>
                 </li>

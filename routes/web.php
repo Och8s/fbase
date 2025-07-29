@@ -51,14 +51,16 @@ Route::prefix('primer-equip')->name('primer.')->group(function () {
 });
 
 
+
 Route::prefix('segon-equip')->name('segon.')->group(function () {
     Route::get('/', [SegonEquipController::class, 'index'])->name('index');
     Route::get('/plantilla', [SegonEquipController::class, 'plantilla'])->name('plantilla');
     Route::get('/calendari', [SegonEquipController::class, 'calendari'])->name('calendari');
     Route::get('/jornada', [SegonEquipController::class, 'jornada'])->name('jornada');
-    Route::get('/resultats', [SegonEquipController::class, 'resultat'])->name('resultat');
+    Route::get('/resultats', [SegonEquipController::class, 'resultats'])->name('resultats');
     Route::get('/classificacio', [SegonEquipController::class, 'classificacio'])->name('classificacio');
 });
+
 
 
 // Escola de Porters

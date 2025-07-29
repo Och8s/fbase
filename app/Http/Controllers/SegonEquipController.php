@@ -7,32 +7,32 @@ use Illuminate\Http\Request;
 class SegonEquipController extends Controller
 {
     public function index()
-{
-    return view('segon_equip.index');
-}
+    {
+        return view('segonEquip.index');
+    }
 
     public function plantilla()
     {
-        return view('segon_equip.plantilla');
+        return view('segonEquip.plantilla');
     }
 
     public function calendari()
     {
-        return view('segon_equip.calendari');
+        return view('segonEquip.calendari');
     }
 
     public function jornada()
     {
-        return view('segon_equip.jornada');
+        return view('segonEquip.jornada');
     }
 
-    public function resultat()
+    public function resultats()
     {
-        return view('segon_equip.resultat');
+        return view('segonEquip.resultats');
     }
 
     public function classificacio()
     {
-        return view('segon_equip.classificacio');
+        return view('segonEquip.classificacio');
     }
 }
