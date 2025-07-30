@@ -337,3 +337,31 @@ header h1 {
     background-color: transparent; /* per si hereta fons */
 }
 
+/* Porteros Especial */
+.logosPorters {
+    display: flex;
+    justify-content: flex-end; /* Alinea a la dreta */
+    gap: 1rem;
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+.logoPorter1 {
+    height: 5rem;
+    width: 5rem;
+}
+.logoPorter2 {
+    height: 4rem;
+    width: 4rem;
+}
+.h3SenseMargin {
+    margin: 0;
+}
+
+.text-over-image img.logoPorter2 {
+    height: 4rem;       /* més petit */
+    width: auto;        /* manté proporcions */
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    display: inline-block;
+}

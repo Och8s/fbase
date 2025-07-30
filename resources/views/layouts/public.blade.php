@@ -82,7 +82,7 @@
     <a href="{{ route('escola.accesCoordinador') }}">Accés Coordinador</a>
   </div>
                 <li class="desplegable"><a href="{{ route('primer.index') }}"
-   class="{{ request()->is('primer*') || request()->is('vista/general') ? 'active' : '' }}">
+   class="{{ request()->is('primer*') ? 'active' : '' }}">
    PRIMER EQUIP
 </a>
 
@@ -107,7 +107,11 @@
                         <a href="{{ route('segon.classificacio') }}">Classificació</a>
                     </div>
                 </li>
-                <li class="desplegable"><a href="{{ route('porters.index') }}">ESCOLA DE PORTERS</a>
+                <li class="desplegable">  <a href="{{ route('porters.index') }}"
+     class="{{ request()->is('porters*') ? 'active' : '' }}">
+     ESCOLA DE PORTERS
+  </a>
+
                     <div class="desplegableContingut">
                         <a href="{{ route('porters.formacio') }}">Formació i metodologia</a>
                         <a href="{{ route('porters.horari') }}">Horari, calendari i esdeveniments</a>
@@ -130,7 +134,10 @@
     <a href="{{ route('secretaria.acces') }}">Accés Secretaria</a>
   </div>
 </li>
-                <li class="desplegable"><a href="{{ route('historia.index') }}">HISTÒRIA</a>
+                <li class="desplegable"> <a href="{{ route('historia.index') }}"
+     class="{{ request()->is('historia*') ? 'active' : '' }}">
+     HISTÒRIA
+  </a>
                     <div class="desplegableContingut">
                         <a href="{{ route('historia.ressenya') }}">Ressenya històrica</a>
                         <a href="{{ route('historia.cronologia') }}">Cronologia d'èxits</a>

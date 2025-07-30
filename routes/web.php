@@ -92,6 +92,7 @@ Route::prefix('historia')->name('historia.')->group(function () {
 });
 
 Route::get('/patrocinadors', [PatrocinadorsController::class, 'index'])->name('patrocinadors.index');
+Route::get('/patrocinadors/{id}', [PatrocinadorsController::class, 'show'])->name('patrocinadors.mostra');
 
 
 Route::post('/jugadors/{id}/enviar-informe', [EmailController::class, 'enviarInformeJugador'])->name('enviar.informe');
