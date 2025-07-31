@@ -45,8 +45,15 @@ class PatrocinadorsController extends Controller
         ]);
 
         if ($request->hasFile('logo')) {
-            $dades['logo'] = $request->file('logo')->store('images/patrocinadors', 'public');
+            $nomArxiu = str_replace(' ', '_', strtolower($request->nom)); // ex: "Coca Cola" → "coca_cola"
+            $extensio = $request->file('logo')->getClientOriginalExtension(); // jpg, png, etc.
+            $nomFitxerFinal = $nomArxiu . '.' . $extensio;
+
+            $request->file('logo')->move(public_path('images/patrocinadors'), $nomFitxerFinal);
+
+            $dades['logo'] = $nomFitxerFinal;
         }
+
 
         Patrocinador::create($dades);
         return redirect()->route('patrocinadors.index')->with('success', 'Patrocinador afegit correctament.');

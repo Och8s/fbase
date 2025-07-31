@@ -145,7 +145,12 @@
                         <a href="{{ route('historia.envians') }}">Envia'ns la teva foto</a>
                     </div>
                 </li>
-                <li><a href="{{ route('patrocinadors.index') }}">PATROCINADORS</a></li>
+<li>
+    <a href="{{ route('patrocinadors.index') }}"
+       class="{{ request()->is('patrocinadors*') ? 'active' : '' }}">
+       PATROCINADORS
+    </a>
+</li>
             </ul>
             <hr class="linea">
         </nav>
