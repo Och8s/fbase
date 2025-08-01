@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Noticia;
 
 
 class ClubController extends Controller
@@ -14,7 +15,14 @@ class ClubController extends Controller
     }
 
     // Pots afegir més mètodes com aquests quan els necessitis:
-    public function noticies() { return view('club.noticies'); }
+
+public function noticies()
+{
+    $noticies = Noticia::orderBy('data', 'desc')->take(6)->get();
+    return view('club.noticies', compact('noticies'));
+}
+
+
     public function quiSom() { return view('club.qui'); }
     public function objectius() { return view('club.objectius'); }
     public function events() { return view('club.events'); }

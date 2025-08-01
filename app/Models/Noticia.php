@@ -9,10 +9,11 @@ class Noticia extends Model
 {
     use HasFactory;
 
+        // 👇 Aquesta línia és clau
+    protected $table = 'noticies';
+
     protected $fillable = [
-        'titol',
-        'data',
-        'foto',
-        'descripcio',
-    ];
+    'titol', 'data', 'foto', 'descripcio', 'seccio'
+];
+
 }
