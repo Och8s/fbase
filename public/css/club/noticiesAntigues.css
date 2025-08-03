@@ -327,3 +327,27 @@ header h1 {
     color: #fcfcfb; /* groc */
     background-color: transparent; /* per si hereta fons */
 }
+
+/* NOTICIES SIMPLE */
+.noticia-simple {
+    text-align: left;
+    width: 100%;
+}
+
+.noticia-simple .noticia-titol {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #003366;
+    margin-bottom: 0.5rem;
+}
+
+.noticia-simple .noticia-data {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.noticia-simple .noticia-descripcio {
+    font-size: 0.95rem;
+    color: #222;
+}

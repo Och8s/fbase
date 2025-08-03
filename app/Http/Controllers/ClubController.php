@@ -22,6 +22,21 @@ public function noticies()
     return view('club.noticies', compact('noticies'));
 }
 
+public function veureNoticia($id)
+{
+    $noticia = Noticia::findOrFail($id);
+    return view('club.noticia', compact('noticia'));
+}
+
+public function noticiesAntigues()
+{
+    $noticiesAntigues = Noticia::whereDate('data', '<', now()->subMonth())
+        ->orderBy('data', 'desc')
+        ->paginate(12);
+
+    return view('club.noticiesAntigues', compact('noticiesAntigues'));
+}
+
 
     public function quiSom() { return view('club.qui'); }
     public function objectius() { return view('club.objectius'); }

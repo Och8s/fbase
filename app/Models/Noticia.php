@@ -12,8 +12,14 @@ class Noticia extends Model
         // 👇 Aquesta línia és clau
     protected $table = 'noticies';
 
-    protected $fillable = [
-    'titol', 'data', 'foto', 'descripcio', 'seccio'
+   protected $fillable = [
+    'titol',
+    'descripcio',
+    'foto',
+    'data',
+    'seccio',
+    'article', // 👈 afegit nou
 ];
+
 
 }
