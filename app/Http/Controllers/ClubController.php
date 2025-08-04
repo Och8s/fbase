@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Noticia;
+use App\Models\Descripcio;
+
 
 
 class ClubController extends Controller
@@ -37,8 +39,19 @@ public function noticiesAntigues()
     return view('club.noticiesAntigues', compact('noticiesAntigues'));
 }
 
+public function mostrarQuiSom()
+{
+    $descripcio = Descripcio::findOrFail(1); // o amb slug
+    return view('club.descripcioPlantilla', compact('descripcio'));
+}
 
-    public function quiSom() { return view('club.qui'); }
+public function mostrarObjectius()
+{
+    $descripcio = Descripcio::findOrFail(2);
+    return view('club.descripcioPlantilla', compact('descripcio'));
+}
+
+
     public function objectius() { return view('club.objectius'); }
     public function events() { return view('club.events'); }
     public function soci() { return view('club.soci'); }

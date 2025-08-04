@@ -23,8 +23,9 @@ Route::get('/vista/general', [ClubController::class, 'index'])->name('club.index
 Route::prefix('club')->name('club.')->group(function () {
     Route::get('/noticies', [ClubController::class, 'noticies'])->name('noticies');
     Route::get('/noticies/antigues', [ClubController::class, 'noticiesAntigues'])->name('noticies.antigues');
-    Route::get('/qui-som', [ClubController::class, 'quiSom'])->name('qui');
-    Route::get('/objectius', [ClubController::class, 'objectius'])->name('objectius');
+Route::get('/qui-som', [ClubController::class, 'mostrarQuiSom'])->name('quisom');
+Route::get('/objectius', [ClubController::class, 'mostrarObjectius'])->name('objectius');
+
     Route::get('/events', [ClubController::class, 'events'])->name('events');
     Route::get('/fes-te-soci', [ClubController::class, 'soci'])->name('soci');
     Route::get('/acces-soci', [ClubController::class, 'accesSoci'])->name('accesSoci');

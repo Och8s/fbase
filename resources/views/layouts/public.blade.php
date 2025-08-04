@@ -61,7 +61,7 @@
 
   <div class="desplegableContingut">
     <a href="{{ route('club.noticies') }}">Notícies</a>
-    <a href="{{ route('club.qui') }}">Qui som?</a>
+<a href="{{ route('club.quisom') }}">Qui som?</a>
     <a href="{{ route('club.objectius') }}">Objectius</a>
     <a href="{{ route('club.events') }}">Activitats i esdeveniments</a>
     <a href="{{ route('club.soci') }}">Fes-te soci</a>

@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Descripcio extends Model
 {
     use HasFactory;
+    protected $table = 'descripcions';
+
 
     protected $fillable = ['titol', 'text'];
 }
