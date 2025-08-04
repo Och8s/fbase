@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+<h2 class="titol-noticies">ARXIU DE NOTÍCIES</h2>
+
 <div class="Introduccio1">
     @foreach ($noticiesAntigues as $noticia)
         <div class="Apartat">

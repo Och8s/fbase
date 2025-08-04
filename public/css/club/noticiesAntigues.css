@@ -159,14 +159,13 @@ header h1 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     padding: 1rem;
 }
 
 .Apartat {
-    background-color: #fff;
-    border: 2px solid #a7b8cb;
-    border-radius: 12px;
+    background-color: #f8f5f0; /* paper antic */
+    border: 2px solid #807e7d;
     width: calc(30% - 2rem); /* 🔥 3 per fila amb separació */
     min-width: 280px;
     padding: 1rem;
@@ -330,24 +329,78 @@ header h1 {
 
 /* NOTICIES SIMPLE */
 .noticia-simple {
-    text-align: left;
-    width: 100%;
+    font-family: 'Georgia', serif; /* tipus premsa escrita */
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
+
+
 
 .noticia-simple .noticia-titol {
     font-size: 1.3rem;
     font-weight: bold;
     color: #003366;
-    margin-bottom: 0.5rem;
 }
 
 .noticia-simple .noticia-data {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #666;
-    margin-bottom: 0.5rem;
+}
+.noticia-simple .noticia-seccio{
+    font-size: 0.8rem;
+    color: #666;
 }
 
 .noticia-simple .noticia-descripcio {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #222;
+}
+
+.noticia-simple h3.noticia-titol,
+.noticia-simple .noticia-data,
+.noticia-simple .noticia-descripcio {
+    margin-top: 0.8rem;
+    margin-bottom: 0.50rem;
+}
+.noticia-titol {
+    text-align: left;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.noticia-titol h3 {
+    text-align: left;
+    font-size: 1.1rem;
+    color: #003366;
+    margin: 0;
+}
+
+
+.noticia-descripcio {
+    text-align: left;
+    width: 100%;
+}
+.noticia-data,
+.noticia-seccio{
+    text-align: right;
+    width: 100%;
+}
+
+.titol-noticies {
+    color: #003366;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.titol-noticies {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
 }

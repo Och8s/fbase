@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+<h2 class="titol-noticies">NOTÍCIES ACTUALS</h2>
+
+
 <div class="Introduccio1">
     @foreach ($noticies as $noticia)
         <div class="Apartat">
@@ -32,8 +35,10 @@
     @endforeach
 </div>
 
-<div class="text-center mt-4">
-<a href="{{ route('club.noticies.antigues') }}" class="btn btn-outline-primary">Veure notícies antigues</a>
+<div class="acces-noticiesAntigues">
+    <a href="{{ route('club.noticies.antigues') }}">
+        <button class="btn-veure btn-antigues">VEURE HISTÒRIC DE NOTÍCIES</button>
+    </a>
 </div>
 
 @endsection
