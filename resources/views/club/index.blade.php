@@ -41,7 +41,7 @@
     <div class="Introduccio2">
         <div class="Apartat">
             <div class="MedioA">
-                <a href="{{ route('club.events') }}"><button>ACTIVITATS I EVENTS</button></a>
+                <a href="{{ route('club.events') }}"><button>ACTIVITATS I ESDEVENIMENTS</button></a>
                 <img src="{{ asset('images/club/Campus.jpg') }}" alt="Events">
             </div>
             <div class="MedioA">
