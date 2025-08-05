@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Noticia;
 use App\Models\Descripcio;
+use App\Models\Event;
+
 
 
 
@@ -16,8 +18,7 @@ class ClubController extends Controller
         return view('club.index'); // Aquesta és la vista que ja tens creada
     }
 
-    // Pots afegir més mètodes com aquests quan els necessitis:
-
+// 1 NOTICIES
 public function noticies()
 {
     $noticies = Noticia::orderBy('data', 'desc')->take(6)->get();
@@ -52,8 +53,13 @@ public function mostrarObjectius()
     return view('club.descripcioPlantilla', compact('descripcio'));
 }
 
+// 2 EVENTS
 
-    public function events() { return view('club.events'); }
+    public function events() {
+$events = Event::orderBy('id', 'asc')->get();
+    return view('club.events', compact('events'));
+}
+
     public function soci() { return view('club.soci'); }
     public function accesSoci() { return view('club.accesSoci'); }
 }

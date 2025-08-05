@@ -1,0 +1,335 @@
+/* ===================== */
+/* GENERAL DEL COS I TEXT */
+/* ===================== */
+body {
+    background-color: #fafafa;
+    color: #1a1a1a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===================== */
+/* TÍTOL DEL CLUB */
+/* ===================== */
+header {
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #a4aebd, #a5b1c3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* ===================== */
+/* LOGO I BOTÓ ACCÉS */
+/* ===================== */
+.logo-acces {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    background-color: #001f4d;
+}
+
+.logo-escola {
+    height: 100px;
+    width: auto;
+}
+.logo-escola-centre {
+    height: 100px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.acces-usuaris {
+    margin: 0;
+}
+
+.btn-acces {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #003366;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-acces:hover {
+    background-color: #e6b800;
+    color: white;
+}
+
+/* ===================== */
+/* MENÚ DE NAVEGACIÓ */
+/* ===================== */
+.nav-publica {
+    background-color: #8fa0b1;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    overflow: visible; /* 🔧 Afegeix això */
+}
+
+.nav-publica ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: nowrap;
+    overflow: visible; /* 🔧 Canvia de auto a visible */
+}
+
+.nav-publica a {
+    padding: 0.5rem 0.75rem; /* abans tenies 0.5rem 1rem */
+    font-size: 0.95rem; /* opcional per reduir lletra */
+}
+
+
+
+.nav-publica li {
+    position: relative;
+}
+
+.nav-publica a {
+    color: rgb(32, 52, 63);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.nav-publica a:hover {
+    background-color: #5b7985;
+    border-radius: 5px;
+}
+
+/* ===================== */
+/* DESPLEGABLE */
+/* ===================== */
+.desplegableContingut {
+    display: none;
+    position: absolute;
+    background-color: #777f86;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    z-index: 10;
+    border-radius: 0.25rem;
+    padding: 0.5rem 0;
+}
+
+.desplegable:hover .desplegableContingut {
+    display: block;
+}
+
+.desplegableContingut a {
+    padding: 0.5rem 1rem;
+    text-align: left;
+}
+
+/* ===================== */
+/* HR DIVISÒRIA */
+/* ===================== */
+.linea {
+    border: none;
+    border-top: 2px solid white;
+    margin: 0.5rem 0;
+}
+
+/* ===================== */
+/* LAYOUT DE NOTÍCIES */
+/* ===================== */
+
+.Introduccio1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.Apartat {
+    background-color: #fff;
+    border: 2px solid #a7b8cb;
+    border-radius: 12px;
+    width: calc(30% - 2rem); /* 🔥 3 per fila amb separació */
+    min-width: 280px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+/* Bloc intern amb imatge + dades al costat */
+.bloc-event {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    width: 100%;
+    flex-wrap: nowrap;
+    text-align: left;
+}
+
+.event-img img {
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.event-dades {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex: 1;
+}
+
+.event-dades .btn-veure:hover {
+    background-color: #030350;
+}
+
+.event-data {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.event-data {
+    margin-top: 2.5rem;
+}
+.event-seccio {
+    margin-top: 0.2rem;
+}
+
+.event-titol {
+    width: 100%;
+
+}
+
+.event-titol h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  margin-bottom: 1rem;
+  color: rgb(251, 3, 3); /* color negro puro */
+  font-weight: 400;
+        text-transform: uppercase;
+
+}
+
+
+.titol-events {
+    color: #003366;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.titol-events {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+}
+.btn-veure {
+  background-color: #003366;
+  color: white;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1.1;
+  text-align: center;
+  white-space: normal;
+  max-width: 80px;
+  min-height: 45px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-veure:hover {
+  background-color: #030350;
+}
+
+
+/* ===================== */
+/* PEU DE PÀGINA */
+/* ===================== */
+.footer-public {
+    background-color:  #001f4d;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1rem;
+}
+
+.footer-public a {
+    color: #ffde00;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.footer-public a:hover {
+    text-decoration: underline;
+}
+.MedioA button {
+    background-color: #003366; /* blau com el footer */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s;
+}
+
+.MedioA button:hover {
+    background-color: #001f4d; /* blau més fosc al hover */
+}
+.footer-public .social-icons a {
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.footer-public .social-icons a:hover {
+    transform: scale(1.2);
+    color: #fcd000; /* o groc/blau del club */
+}
+
+.nav-publica a.active {
+    color: #fcfcfb; /* groc */
+    background-color: transparent; /* per si hereta fons */
+}
