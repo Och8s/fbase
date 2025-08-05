@@ -20,15 +20,9 @@ class EscolaController extends Controller
         return view('escola.equips');
     }
 
-    public function estil()
-    {
-        return view('escola.estil');
-    }
 
-    public function metodologia()
-    {
-        return view('escola.metodologia');
-    }
+
+
 
     public function accesEntrenador()
     {
@@ -46,4 +40,16 @@ public function formacio()
     $descripcio = Descripcio::find(3); // o el que correspongui
     return view('escola.descripcioPlantilla', compact('descripcio'));
 }
+
+public function estil()
+{
+    $descripcio = Descripcio::find(4);
+    return view('escola.descripcioPlantilla', compact('descripcio'));
+}
+public function metodologia()
+{
+    $descripcio = Descripcio::find(5);
+    return view('escola.descripcioPlantilla', compact('descripcio'));
+}
+
 }
