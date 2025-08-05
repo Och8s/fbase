@@ -19,7 +19,7 @@
 
         <div class="Apartat">
             <div class="MedioA">
-                <a href="{{ route('club.qui_som') }}"><button>QUI SOM?</button></a>
+                <a href="{{ route('club.quisom') }}"><button>QUI SOM?</button></a>
                 <img src="{{ asset('images/club/presentacion.jpg') }}" alt="Qui som?">
             </div>
             <div class="MedioA">

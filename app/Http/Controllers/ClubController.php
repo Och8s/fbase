@@ -39,17 +39,30 @@ public function noticiesAntigues()
     return view('club.noticiesAntigues', compact('noticiesAntigues'));
 }
 
+// UTILITCEM PLANTILLA  PER A TOTS
 public function mostrarQuiSom()
 {
-    $descripcio = Descripcio::findOrFail(1); // o amb slug
+    $descripcio = Descripcio::find(1);
     return view('club.descripcioPlantilla', compact('descripcio'));
 }
 
 public function mostrarObjectius()
 {
-    $descripcio = Descripcio::findOrFail(2);
+    $descripcio = Descripcio::find(2);
     return view('club.descripcioPlantilla', compact('descripcio'));
 }
+
+
+
+
+
+
+// public function quiSom()
+// {
+//     $descripcio = Descripcio::where('titol', 'Qui som')->firstOrFail();
+//     return view('club.descripcioPlantilla', compact('descripcio'));
+// }
+
 
 
     public function objectius() { return view('club.objectius'); }
