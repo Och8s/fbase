@@ -19,7 +19,9 @@ protected $fillable = [
     'divisio',
     'grup',
     'codi_fed',
+    'modalitat_id', // 👈 Afegeix aquest!
 ];
+
 
 
     public function partits(): HasMany
@@ -50,6 +52,11 @@ protected $fillable = [
 {
     return $this->hasMany(Horari::class);
 }
+public function modalitat()
+{
+    return $this->belongsTo(Modalitat::class);
+}
+
 
     // Relació molts-a-molts amb entrenadors (pot ser principal o auxiliar)
     public function entrenadors()

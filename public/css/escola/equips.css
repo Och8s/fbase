@@ -152,11 +152,11 @@ header h1 {
 /* SECCIÓ EQUIPS */
 /* ===================== */
 .container-equips {
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .categoria-bloc {
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     text-align: center;
 }
 
@@ -191,7 +191,7 @@ header h1 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 .btn-equip {
@@ -202,20 +202,24 @@ header h1 {
     border: none;
     border-radius: 8px;
     transition: background-color 0.3s;
+        cursor: pointer;
+
 }
 
 .btn-equip:hover {
-    background-color: #0055aa;
+    background-color: #042547;
+        cursor: pointer;
+
 }
 
 .subcategoria-text {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: normal;
     line-height: 1.2;
 }
 
 .equip-nom {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: bold;
     margin-top: 0.2rem;
     display: block;
@@ -274,4 +278,33 @@ header h1 {
 
 .MedioA button:hover {
     background-color: #001f4d;
+}
+
+.titol-noticies {
+    color: #003366;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.titol-noticies {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+}
+.femeni-btn {
+    background-color: #d82a64; /* Un rosa clar, pots canviar-lo */
+    color: white; /* Color del text per assegurar que es llegeixi bé */
+    border: 2px solid #bf1f55; /* Opcional: contorn més viu */
+}
+
+.femeni-btn:hover {
+    background-color: #ca1e58; /* Un rosa clar, pots canviar-lo */
+    color: white; /* Color del text per assegurar que es llegeixi bé */
+    border: 2px solid #bf1f55; /* Opcional: contorn més viu */
 }

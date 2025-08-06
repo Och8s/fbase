@@ -13,6 +13,11 @@ class Modalitat extends Model
         'coordinador_id',
     ];
 
+    public function equips()
+{
+    return $this->hasMany(Equip::class);
+}
+
     public function coordinador()
     {
         return $this->belongsTo(User::class, 'coordinador_id');

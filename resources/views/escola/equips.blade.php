@@ -13,19 +13,15 @@
             <!-- Títol gran de la categoria -->
             <h3 class="titol-categoria">{{ strtoupper($categoriaNom) }}</h3>
 
-            <!-- Només modalitat (sense foto) -->
-            @if ($equipsCategoria->first()->modalitat)
-                <p class="modalitat">{{ ucfirst($equipsCategoria->first()->modalitat) }}</p>
-            @endif
 
 <!-- Botons de cada equip -->
 <div class="botons-equips">
     @foreach ($equipsCategoria as $equip)
         <a href="{{ route('escola.equips.show', $equip->id) }}">
-            <button class="btn-equip">
+            <button class="btn-equip {{ $equip->modalitat && $equip->modalitat->id == 3 ? 'femeni-btn' : '' }}">
                 <div class="subcategoria-text">
-                    @if ($equip->categoria->modalitat_id == 3)
-                        FEMENÍ
+                    @if ($equip->modalitat && $equip->modalitat->id == 3)
+                        {{ strtoupper($equip->modalitat->nom) }}
                     @elseif ($equip->subcategoria)
                         {{ strtoupper($equip->subcategoria->nom) }}
                     @else
@@ -39,6 +35,8 @@
         </a>
     @endforeach
 </div>
+
+
 
 
 
