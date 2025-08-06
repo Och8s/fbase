@@ -43,11 +43,14 @@ Route::prefix('escola')->name('escola.')->group(function () {
     Route::get('/formacio', [EscolaController::class, 'formacio'])->name('formacio');
 
     Route::get('/equips', [EscolaController::class, 'equips'])->name('equips');
+    Route::get('/equips/{id}', [EscolaController::class, 'mostrarEquip'])->name('equips.show');
+
 
     Route::get('/estil', [EscolaController::class, 'estil'])->name('estil');
     Route::get('/metodologia', [EscolaController::class, 'metodologia'])->name('metodologia');
     Route::get('/acces-entrenador', [EscolaController::class, 'accesEntrenador'])->name('accesEntrenador');
     Route::get('/acces-coordinador', [EscolaController::class, 'accesCoordinador'])->name('accesCoordinador');
+
 });
 
 Route::prefix('primer-equip')->name('primer.')->group(function () {

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Descripcio;
+use App\Models\Equip;
+
 
 
 class EscolaController extends Controller
@@ -15,10 +17,6 @@ class EscolaController extends Controller
 
 
 
-    public function equips()
-    {
-        return view('escola.equips');
-    }
 
 
 
@@ -50,6 +48,21 @@ public function metodologia()
 {
     $descripcio = Descripcio::find(5);
     return view('escola.descripcioPlantilla', compact('descripcio'));
+}
+// App\Http\Controllers\EscolaController.php
+
+
+public function equips()
+{
+    $equips = Equip::with('categoria', 'subcategoria')->get();
+
+    return view('escola.equips', compact('equips'));
+}
+
+public function mostrarEquip($id)
+{
+    $equip = Equip::with(['categoria', 'subcategoria'])->findOrFail($id);
+    return view('escola.equip', compact('equip'));
 }
 
 }

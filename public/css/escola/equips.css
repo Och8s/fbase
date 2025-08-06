@@ -1,0 +1,277 @@
+/* ===================== */
+/* GENERAL DEL COS I TEXT */
+/* ===================== */
+body {
+    background-color: #fafafa;
+    color: #1a1a1a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===================== */
+/* TÍTOL DEL CLUB */
+/* ===================== */
+header {
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #a4aebd, #a5b1c3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* ===================== */
+/* LOGO I BOTÓ ACCÉS */
+/* ===================== */
+.logo-acces {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    background-color: #001f4d;
+}
+
+.logo-escola {
+    height: 100px;
+    width: auto;
+}
+.logo-escola-centre {
+    height: 100px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.acces-usuaris {
+    margin: 0;
+}
+
+.btn-acces {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #003366;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-acces:hover {
+    background-color: #e6b800;
+    color: white;
+}
+
+/* ===================== */
+/* MENÚ DE NAVEGACIÓ */
+/* ===================== */
+.nav-publica {
+    background-color: #8fa0b1;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    overflow: visible;
+}
+
+.nav-publica ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: nowrap;
+    overflow: visible;
+}
+
+.nav-publica li {
+    position: relative;
+}
+
+.nav-publica a {
+    color: rgb(32, 52, 63);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: background-color 0.3s;
+    font-size: 0.95rem;
+}
+
+.nav-publica a:hover {
+    background-color: #5b7985;
+    border-radius: 5px;
+}
+
+.nav-publica a.active {
+    color: #fcfcfb;
+    background-color: transparent;
+}
+
+/* ===================== */
+/* DESPLEGABLE */
+/* ===================== */
+.desplegableContingut {
+    display: none;
+    position: absolute;
+    background-color: #777f86;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    z-index: 10;
+    border-radius: 0.25rem;
+    padding: 0.5rem 0;
+}
+
+.desplegable:hover .desplegableContingut {
+    display: block;
+}
+
+.desplegableContingut a {
+    padding: 0.5rem 1rem;
+    text-align: left;
+}
+
+/* ===================== */
+/* HR DIVISÒRIA */
+/* ===================== */
+.linea {
+    border: none;
+    border-top: 2px solid white;
+    margin: 0.5rem 0;
+}
+
+/* ===================== */
+/* SECCIÓ EQUIPS */
+/* ===================== */
+.container-equips {
+    padding: 2rem;
+}
+
+.categoria-bloc {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.titol-categoria {
+    font-size: 2rem;
+    color: #003366;
+    margin-bottom: 1rem;
+}
+
+.categoria-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.categoria-foto {
+    width: 300px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.modalitat {
+    margin-top: 0.5rem;
+    font-weight: bold;
+    color: #444;
+}
+
+.botons-equips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-equip {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.btn-equip:hover {
+    background-color: #0055aa;
+}
+
+.subcategoria-text {
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.equip-nom {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 0.2rem;
+    display: block;
+}
+
+
+/* ===================== */
+/* PEU DE PÀGINA */
+/* ===================== */
+.footer-public {
+    background-color:  #001f4d;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1rem;
+}
+
+.footer-public a {
+    color: #ffde00;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.footer-public a:hover {
+    text-decoration: underline;
+}
+
+.footer-public .social-icons a {
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.footer-public .social-icons a:hover {
+    transform: scale(1.2);
+    color: #fcd000;
+}
+
+/* ===================== */
+/* BOTONS EXTRA */
+/* ===================== */
+.MedioA button {
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s;
+}
+
+.MedioA button:hover {
+    background-color: #001f4d;
+}
