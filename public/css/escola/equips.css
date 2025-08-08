@@ -151,20 +151,52 @@ header h1 {
 /* ===================== */
 /* SECCIÓ EQUIPS */
 /* ===================== */
+
+
+/* Contenidor apila files */
 .container-equips {
-    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
-.categoria-bloc {
-    margin-bottom: 1.5rem;
-    text-align: center;
+/* Cada fila pot tenir 1 o 2 categories */
+.fila-categories {
+    display: flex;
+    gap: 1rem;
 }
+
+/* Si hi ha 2 categories a la fila: 50% cadascuna */
+.fila-categories .categoria-bloc {
+    flex: 1 1 50%;
+}
+
+/* Si només hi ha 1: ocupa tot l'ample */
+.fila-categories.single .categoria-bloc {
+    flex: 1 1 100%;
+}
+
+/* Mòbil: sempre 1 per fila */
+@media (max-width: 768px) {
+    .fila-categories {
+        flex-direction: column;
+    }
+    .fila-categories .categoria-bloc,
+    .fila-categories.single .categoria-bloc {
+        flex-basis: 100%;
+    }
+}
+
 
 .titol-categoria {
-    font-size: 2rem;
-    color: #003366;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #6744b9;
+    margin-bottom: 0.75rem;
+    text-align: center;         /* Centra el text */
+    font-weight: bold;          /* Opcional: remarcar */
+    text-transform: uppercase;  /* Opcional: tot en majúscules */
 }
+
 
 .categoria-info {
     display: flex;
@@ -195,8 +227,8 @@ header h1 {
 }
 
 .btn-equip {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+    padding: 1rem 1.75rem;
+    font-size: 1rem;
     background-color: #003366;
     color: white;
     border: none;
@@ -213,13 +245,13 @@ header h1 {
 }
 
 .subcategoria-text {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: normal;
-    line-height: 1.2;
+    line-height: 1.1;
 }
 
 .equip-nom {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: bold;
     margin-top: 0.2rem;
     display: block;
@@ -300,11 +332,43 @@ header h1 {
 .femeni-btn {
     background-color: #d82a64; /* Un rosa clar, pots canviar-lo */
     color: white; /* Color del text per assegurar que es llegeixi bé */
-    border: 2px solid #bf1f55; /* Opcional: contorn més viu */
+
+
 }
 
 .femeni-btn:hover {
     background-color: #ca1e58; /* Un rosa clar, pots canviar-lo */
     color: white; /* Color del text per assegurar que es llegeixi bé */
-    border: 2px solid #bf1f55; /* Opcional: contorn més viu */
 }
+/* Menys separació entre files de categories */
+.container-equips {
+    gap: 0.2rem; /* abans 2rem */
+}
+
+/* Menys separació entre columnes de la fila */
+.fila-categories {
+    gap: 0.5rem; /* abans 1rem */
+}
+
+/* Reduir espai sota el títol de categoria */
+.titol-categoria {
+    margin-bottom: 0.5rem; /* abans 0.75rem */
+}
+
+/* Reduir espai entre botons d’equips */
+.botons-equips {
+    gap: 0.5rem; /* abans 1rem */
+    margin-top: 0.3rem; /* abans 0.5rem */
+}
+/* Espai lateral extra només entre grups de subcategories */
+.grup-subcategoria:not(:first-child) {
+    margin-left: 1rem; /* ajusta al gust, p. ex. 1rem o 2rem */
+}
+
+/* Botons dins de cada subcategoria */
+.grup-subcategoria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; /* espai entre botons del mateix grup */
+}
+

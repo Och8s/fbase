@@ -78,8 +78,8 @@ Route::prefix('segon-equip')->name('segon.')->group(function () {
 // Escola de Porters
 Route::prefix('porters')->name('porters.')->group(function () {
     Route::get('/', [PortersController::class, 'index'])->name('index');
-    Route::get('/formacio', [PortersController::class, 'formacio'])->name('formacio');
-    Route::get('/horari', [PortersController::class, 'horari'])->name('horari');
+Route::get('/metodologiaPorters', [PortersController::class, 'metodologiaPorters'])->name('metodologiaPorters');
+Route::get('/horariCalendari', [PortersController::class, 'horariCalendari'])->name('horariCalendari');
     Route::get('/entrenadors', [PortersController::class, 'entrenadors'])->name('entrenadors');
     Route::get('/plans', [PortersController::class, 'plans'])->name('plans');
     Route::get('/contacte', [PortersController::class, 'contacte'])->name('contacte');

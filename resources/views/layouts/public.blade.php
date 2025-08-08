@@ -113,8 +113,8 @@
   </a>
 
                     <div class="desplegableContingut">
-                        <a href="{{ route('porters.formacio') }}">Formació i metodologia</a>
-                        <a href="{{ route('porters.horari') }}">Horari, calendari i esdeveniments</a>
+<a href="{{ route('porters.metodologiaPorters') }}">Formació i metodologia</a>
+                       <a href="{{ route('porters.horariCalendari') }}">Horari, calendari i esdeveniments</a>
                         <a href="{{ route('porters.entrenadors') }}">Entrenadors</a>
                         <a href="{{ route('porters.plans') }}">Plans i tarifes</a>
                         <a href="{{ route('porters.contacte') }}">Contacte</a>

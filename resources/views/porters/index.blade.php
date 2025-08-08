@@ -28,15 +28,16 @@
     <div class="model2">
         <div class="Apartat">
             <div class="MedioA">
-                <a href="{{ route('porters.formacio') }}">
+                <a href="{{ route('porters.metodologiaPorters') }}">
                     <button>FORMACIÓ I METODOLOGIA</button>
                 </a>
                 <img src="{{ asset('images/porters/metodoPorters.jpg') }}" alt="Formació i metodologia">
             </div>
             <div class="MedioA">
-                <a href="{{ route('porters.horari') }}">
+<a href="{{ route('porters.horariCalendari') }}">
                     <button>HORARI, CALENDARI I ESDEVENIMENTS</button>
                 </a>
+
                 <img src="{{ asset('images/porters/forma2porters.jpg') }}" alt="Horari, calendari i esdeveniments">
             </div>
         </div>

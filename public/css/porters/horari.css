@@ -1,0 +1,453 @@
+/* ===================== */
+/* GENERAL DEL COS I TEXT */
+/* ===================== */
+body {
+    background-color: #fafafa;
+    color: #1a1a1a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===================== */
+/* TÍTOL DEL CLUB */
+/* ===================== */
+header {
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #a4aebd, #a5b1c3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* ===================== */
+/* LOGO I BOTÓ ACCÉS */
+/* ===================== */
+.logo-acces {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    background-color: #001f4d;
+}
+
+.logo-escola {
+    height: 100px;
+    width: auto;
+}
+.logo-escola-centre {
+    height: 100px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.acces-usuaris {
+    margin: 0;
+}
+
+.btn-acces {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #003366;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-acces:hover {
+    background-color: #e6b800;
+    color: white;
+}
+
+/* ===================== */
+/* MENÚ DE NAVEGACIÓ */
+/* ===================== */
+.nav-publica {
+    background-color: #8fa0b1;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    overflow: visible; /* 🔧 Afegeix això */
+}
+
+.nav-publica ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: nowrap;
+    overflow: visible; /* 🔧 Canvia de auto a visible */
+}
+
+.nav-publica a {
+    padding: 0.5rem 0.75rem; /* abans tenies 0.5rem 1rem */
+    font-size: 0.95rem; /* opcional per reduir lletra */
+}
+
+
+
+.nav-publica li {
+    position: relative;
+}
+
+.nav-publica a {
+    color: rgb(32, 52, 63);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.nav-publica a:hover {
+    background-color: #5b7985;
+    border-radius: 5px;
+}
+
+/* ===================== */
+/* DESPLEGABLE */
+/* ===================== */
+.desplegableContingut {
+    display: none;
+    position: absolute;
+    background-color: #777f86;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    z-index: 10;
+    border-radius: 0.25rem;
+    padding: 0.5rem 0;
+}
+
+.desplegable:hover .desplegableContingut {
+    display: block;
+}
+
+.desplegableContingut a {
+    padding: 0.5rem 1rem;
+    text-align: left;
+}
+
+/* ===================== */
+/* HR DIVISÒRIA */
+/* ===================== */
+.linea {
+    border: none;
+    border-top: 2px solid white;
+    margin: 0.5rem 0;
+}
+
+/* ===================== */
+/* LAYOUT DE NOTÍCIES */
+/* ===================== */
+
+.Introduccio1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.Apartat {
+    background-color: #fff;
+    border: 2px solid #a7b8cb;
+    border-radius: 12px;
+    width: calc(30% - 2rem); /* 🔥 3 per fila amb separació */
+    min-width: 280px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+/* Bloc intern amb imatge + dades al costat */
+.bloc-noticia {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    width: 100%;
+    flex-wrap: nowrap;
+    text-align: left;
+}
+
+.noticia-img img {
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.noticia-dades {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end; /* 🔥 Alinea el contingut a la dreta */
+    flex: 1;
+}
+
+.dades-superior {
+    width: 100%;
+    display: flex;
+}
+
+.dades-inferior {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.2rem;
+}
+
+.btn-veure {
+    background-color: #003366;
+    color: white;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1.1;
+    text-align: center;
+    white-space: normal;
+    max-width: 80px;
+    min-height: 45px; /* 🔥 Fa que tingui prou alçada */
+}
+
+
+
+
+
+
+
+/* ejemplo boton */
+.noticia-dades .btn-veure:hover {
+    background-color: #030350;
+}
+
+.noticia-data, .noticia-seccio {
+    margin: 0;
+    font-size: 0.7rem;
+    color: #333;
+    font-weight: 500;
+}
+.noticia-data {
+    margin-top: 2.5rem;
+
+}
+.noticia-seccio{
+    margin-top: 0.2rem;
+
+}
+
+/* Títol centrat a sota */
+.noticia-titol {
+    width: 100%;
+}
+
+.noticia-titol h3 {
+    font-size: 1.6rem;
+    margin: 0;
+    color: #003366;
+    font-weight: 600;
+}
+
+
+/* ===================== */
+/* PEU DE PÀGINA */
+/* ===================== */
+.footer-public {
+    background-color:  #001f4d;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1rem;
+}
+
+.footer-public a {
+    color: #ffde00;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.footer-public a:hover {
+    text-decoration: underline;
+}
+.MedioA button {
+    background-color: #003366; /* blau com el footer */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s;
+}
+
+.MedioA button:hover {
+    background-color: #001f4d; /* blau més fosc al hover */
+}
+.footer-public .social-icons a {
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.footer-public .social-icons a:hover {
+    transform: scale(1.2);
+    color: #fcd000; /* o groc/blau del club */
+}
+
+.nav-publica a.active {
+    color: #fcfcfb; /* groc */
+    background-color: transparent; /* per si hereta fons */
+}
+
+.titol-noticies {
+    color: #003366;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.titol-noticies {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+}
+
+
+
+
+/* Layout superior Horari + Calendari */
+/* Fila superior: HORARI (60%) + CALENDARI (30%) */
+/* centra el conjunto HORARI | separador | CALENDARI */
+.top-row{
+  display:flex;
+  justify-content:center;    /* centra el conjunto */
+  align-items:stretch;
+  gap:20px;
+  max-width:1200px;          /* limita ancho total */
+  margin:0 auto 40px auto;   /* centra la fila en la página */
+  padding:0 16px;            /* respiración lateral */
+  flex-wrap:nowrap;
+}
+
+
+.col-left{
+  flex:0 0 60%;
+  min-width:0;
+}
+.col-right{
+  flex:0 0 30%;
+  min-width:0;
+  display:flex;              /* centra contenido dentro */
+  flex-direction:column;
+  align-items:center;
+}
+
+.container-horari-calendari {
+  display: flex;
+  gap: 1rem;
+}
+.separator{
+  flex:0 0 2px;              /* ancho de la línea */
+  background:#ccc;
+  align-self:stretch;        /* altura completa del row */
+}
+.card-box{
+  background:#f8f9fa;
+  border:2px solid #a7b8cb;
+  border-radius:12px;
+  padding:20px;
+  overflow:hidden;
+  width:100%;                /* ocupa todo dentro de su columna */
+}
+
+.card-box .titol-noticies{
+  margin:0 0 12px 0 !important;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.img-calendari{
+  display:block;
+  max-width:85%;             /* un poco más pequeña */
+  width:100%;
+  height:auto;
+  border-radius:6px;
+  object-fit:contain;
+  margin:0 auto;             /* centrada en su columna */
+}
+/* Grid de dos columnas para los días */
+.horari-grid{
+margin-top: 2rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* dos columnas iguales */
+  gap: 2rem;                        /* separación entre DILLUNS y DIVENDRES */
+}
+
+/* Tarjeta de cada día */
+.dia{
+  text-align: center;
+  background-color: #001f4d;  /* azul club */
+  color: #fff;
+  border-radius: 5px;
+  padding: 14px 18px;         /* respiración interna */
+  font-weight: 600;
+  transition: transform .15s ease, box-shadow .15s ease;
+  padding: 1rem;
+}
+
+/* Título del día */
+.dia .subtitol-dia{
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffcc00;             /* toque en amarillo club */
+}
+
+/* Líneas de horario */
+.dia p{
+  margin: 4px 0;
+  font-size: 1.4rem;
+    font-weight: 400;
+
+}
+
+/* Pequeño feedback al hover (opcional) */
+.dia:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,.15);
+}
