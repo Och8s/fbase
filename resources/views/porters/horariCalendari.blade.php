@@ -36,7 +36,8 @@
 
 
 {{-- Esdeveniments --}}
-<h2 class="titol-noticies" style="margin-top: 1rem;">ESDEVENIMENTS</h2>
+<div class="esdeveniments-wrapper">
+    <h2 class="titol-noticies" style="margin-top: 1rem;">ESDEVENIMENTS</h2>
 
 @if($events->count() > 0)
     <div class="Introduccio1">
@@ -50,9 +51,11 @@
                                 <h3>{{ $event->titol }}</h3>
                             </div>
                         </div>
-                                        <p style="text-align:left; width:100%; margin-top: .5rem;">{{ $event->descripcio }}</p>
+                        <div class="dades-medio">
 
-                        <div class="dades-inferior" style="margin-top: 10px;">
+                        <p >{{ $event->descripcio }}</p>
+                        </div>
+                        <div class="dades-inferior">
                             <p class="noticia-data">
                                 📅 {{ \Carbon\Carbon::parse($event->data)->format('d/m/Y') }}
                                 @if($event->hora_inici) ⏰ {{ \Carbon\Carbon::parse($event->hora_inici)->format('H:i') }} @endif
@@ -68,4 +71,5 @@
 @else
     <p class="text-center">No hi ha esdeveniments programats en aquest moment.</p>
 @endif
+</div>
 @endsection

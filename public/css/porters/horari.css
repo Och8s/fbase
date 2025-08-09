@@ -207,6 +207,8 @@ header h1 {
 .dades-superior {
     width: 100%;
     display: flex;
+        padding-left: 0.2rem;
+
 }
 
 .dades-inferior {
@@ -245,18 +247,12 @@ header h1 {
 
 .noticia-data, .noticia-seccio {
     margin: 0;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: #333;
     font-weight: 500;
 }
-.noticia-data {
-    margin-top: 2.5rem;
 
-}
-.noticia-seccio{
-    margin-top: 0.2rem;
 
-}
 
 /* Títol centrat a sota */
 .noticia-titol {
@@ -358,7 +354,7 @@ header h1 {
   gap:20px;
   max-width:1200px;          /* limita ancho total */
   margin:0 auto 40px auto;   /* centra la fila en la página */
-  padding:0 16px;            /* respiración lateral */
+  padding:0 0;            /* respiración lateral */
   flex-wrap:nowrap;
 }
 
@@ -450,4 +446,61 @@ margin-top: 2rem;
 .dia:hover{
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0,0,0,.15);
+}
+/* ===== OVERRIDES PER ALINEAR I IGUALAR ALÇADES ===== */
+
+/* Estira totes les targetes dins de la fila */
+.Introduccio1 {
+  align-items: stretch;
+}
+
+/* Cada targeta és una columna flex que pot créixer */
+.Apartat {
+  display: flex;
+  flex-direction: column;
+}
+
+/* El bloc intern ocupa tota l'alçada de la targeta */
+.bloc-noticia {
+  display: flex;           /* ja el tens, ho reforcem */
+  align-items: stretch;    /* molt important: que els fills s'estirin */
+  height: 100%;            /* perquè .noticia-dades tingui alçada per omplir */
+  width: 100%;
+}
+
+/* Contenidor de dades: columna i SENSE align-end */
+.noticia-dades {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: stretch !important; /* anul·la el flex-end anterior */
+}
+
+/* El bloc del mig creix per igualar */
+.dades-medio {
+  flex: 1;                 /* ocupa l’espai lliure */
+  display: flex;           /* perquè el text s'alineï a dalt */
+  align-items: flex-start;
+  /* min-height: 100px;  <- opcional si vols alçada mínima */
+  margin-bottom: 0.8rem;
+}
+
+/* El text de la descripció (dins dades-medio) */
+.dades-medio > p {
+  margin: .5rem 0 0;
+  width: 100%;
+      padding-left: 0.2rem;
+
+}
+
+/* El bloc inferior sempre abaix */
+.dades-inferior {
+  margin-top: auto;
+}
+.esdeveniments-wrapper {
+    border: 2px solid #686d72;
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 1.4rem;
+    background-color: #8fa0b1;
 }

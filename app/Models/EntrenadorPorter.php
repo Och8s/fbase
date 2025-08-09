@@ -18,6 +18,7 @@ class EntrenadorPorter extends Model
         'telefon',
         'equips',
         'titulacio',
+        'foto',
     ];
 }
 

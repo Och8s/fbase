@@ -1,0 +1,62 @@
+.entrenadors-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.entrenador-card {
+    flex: 1 1 calc(33.333% - 30px);
+    max-width: calc(33.333% - 30px);
+    text-align: center;
+}
+
+.entrenador-card img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.entrenador-card h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .entrenador-card {
+        flex: 1 1 calc(50% - 30px);
+        max-width: calc(50% - 30px);
+    }
+}
+
+@media (max-width: 480px) {
+    .entrenador-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+.titol-entrenadors {
+    color: #003366;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.titol-entrenadors {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+}
+
