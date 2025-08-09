@@ -34,14 +34,13 @@ public function horariCalendari()
  public function entrenadors()
     {
         $entrenadors = EntrenadorPorter::select(
-            'id','nom','cognoms','dni','telefon','equips','titulacio','foto','created_at','updated_at'
+            'id', 'nom', 'cognoms', 'dni', 'telefon', 'equips', 'titulacio', 'foto', 'created_at', 'updated_at'
         )
         ->orderBy('nom')
         ->get();
 
-        return view('porters.entrenadorsPorters', compact('entrenadors'));
+        return view('porters.entrenadorsPorters', compact('entrenadors')); // Cambia a la vista correcta
     }
-
 
     public function plans()
     {
