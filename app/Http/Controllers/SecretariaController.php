@@ -11,21 +11,23 @@ class SecretariaController extends Controller
         return view('secretaria.index');
     }
 
-    public function oficina()
-    {
-        return view('secretaria.oficina');
-    }
+
+    // app/Http/Controllers/SecretariaController.php
+public function oficina()
+{
+    return view('secretaria.oficina');
+}
 
     public function inscripcions()
     {
         return view('secretaria.inscripcions');
     }
 
-    public function merchandasing()
-    {
-        return view('secretaria.merchandasing');
-    }
-
+// SecretariaController.php
+public function merchandasing()
+{
+    return view('secretaria.vestuari'); // aquí llamas a vestuari.blade.php
+}
     public function normativa()
     {
         return view('secretaria.normativa');

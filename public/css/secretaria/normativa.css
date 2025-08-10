@@ -1,0 +1,6 @@
+.apartat-titol img {
+    width: 40px;    /* amplada */
+    height: auto;   /* alçada automàtica per mantenir proporció */
+    margin-left: 10px; /* espai entre text i imatge */
+    vertical-align: middle; /* alineació vertical amb el text */
+}
