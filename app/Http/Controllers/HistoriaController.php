@@ -24,29 +24,19 @@ class HistoriaController extends Controller
     }
 
 
-    public function cronologia()
-    {
-        // Només ACTIUS, dins el rang d'anys, ordenats per any desc i màxim 12
-        $exits = ExitEsportiu::where('actiu', true)
-            ->whereBetween('data', [1969, 2024])   // si 'data' és YEAR
-            ->orderBy('data', 'desc')
-            ->take(12)
-            ->get();
+   public function cronologia()
+{
+    $exits = ExitEsportiu::where('actiu', true)
+        ->whereYear('data', '>=', 1966)
+        ->whereYear('data', '<=', 2024)
+        ->inRandomOrder()      // coge 12 al azar
+        ->take(12)
+        ->get()
+        ->sortByDesc('data');  // y los muestra ordenados por fecha
 
-        // Omplim fins a 12 targetes amb placeholders buits
-        $faltants = 12 - $exits->count();
-        for ($i = 0; $i < $faltants; $i++) {
-            $exits->push(new ExitEsportiu([
-                'titol' => '',
-                'foto' => '',
-                'descripcio' => '',
-                'data' => null,
-                'actiu' => false,
-            ]));
-        }
+    return view('historia.cronologia', compact('exits'));
+}
 
-        return view('historia.cronologia', compact('exits'));
-    }
 
     public function fotografies()
     {

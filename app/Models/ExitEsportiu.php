@@ -13,8 +13,10 @@ class ExitEsportiu extends Model
 
     protected $table = 'exits';
 
-    protected $fillable = ['titol','foto','descripcio','data','actiu'];
-
+protected $fillable = ['titol','foto','descripcio','data','actiu'];
+protected $casts = [
+    'data' => 'date',
+];
     // Si 'data' és YEAR a la BBDD, millor deixar-la com string/int (no Carbon).
     // Si fos DATE, podries fer: protected $casts = ['data' => 'date'];
 
