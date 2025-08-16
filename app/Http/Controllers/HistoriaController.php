@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Descripcio;
+
 
 class HistoriaController extends Controller
 {
@@ -13,7 +15,10 @@ class HistoriaController extends Controller
 
     public function ressenya()
     {
-        return view('historia.ressenya');
+        // Canvia l'ID segons el registre que vulguis mostrar
+        $descripcio = Descripcio::find(7);
+
+        return view('historia.descripcioPlantilla', compact('descripcio'));
     }
 
     public function cronologia()

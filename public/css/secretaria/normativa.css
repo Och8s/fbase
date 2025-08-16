@@ -1,6 +1,62 @@
+/* --- TITOL CENTRAT + LOGO ENGAXAT A LA DRETA --- */
+.apartat-titol {
+  position: relative;
+  display: flex;
+  justify-content: center;   /* centra el títol horitzontalment */
+  align-items: flex-start;
+  width: 100%;
+  padding-right: 30px;
+  font-size: 1rem;
+}
+
+.apartat-titol h3 {
+  margin-top: 1.5em;           /* petit marge superior pel títol */
+  margin-bottom: 0;
+  text-align: center;
+}
+
+
 .apartat-titol img {
-    width: 40px;    /* amplada */
-    height: auto;   /* alçada automàtica per mantenir proporció */
-    margin-left: 10px; /* espai entre text i imatge */
-    vertical-align: middle; /* alineació vertical amb el text */
+  position: absolute;
+  top: 0;
+  right: 0.75rem;                  /* enganxat al marge dret */
+  width: 50px;               /* mida quadrada uniforme */
+  height: 50px;
+  object-fit: contain;
+  margin: 0;                 /* sense marge */
+}
+/* ✅ només per a les imatges amb classe img-cat */
+.apartat-titol img.img-cat {
+  width: 35px !important;   /* sobrescriu el 50px */
+  height: auto !important; /* manté proporció */
+}
+/* ✅ només per a les imatges amb classe img-cat */
+.apartat-titol img.img-club {
+  width: 43px !important;   /* sobrescriu el 50px */
+  height: auto !important; /* manté proporció */
+}
+/* ✅ només per a les imatges amb classe img-cat */
+.apartat-titol img.img-vila {
+  width: 60px !important;   /* sobrescriu el 50px */
+  height: auto !important; /* manté proporció */
+}
+
+
+.apartat-desc{
+  margin-top: 1.5em;           /* petit marge superior pel títol */
+}
+
+/* --- BOTÓ: gris fosc + lletra blanca --- */
+.btn-docu button {
+  background-color: #7c8c97;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-docu button:hover {
+  background-color: #555;
 }
