@@ -15,7 +15,7 @@
     @foreach($jugadors as $jugador)
       <div class="jugador-card">
         <p class="jugador-nom">{{ $jugador->nom }} {{ $jugador->cognoms }}</p>
-        <img src="{{ asset('images/jugadorsHistorics/' . $jugador->foto) }}" alt="{{ $jugador->nom }}" class="jugador-foto">
+        <img src="{{ asset('images/historia/jugadors_historics/' . $jugador->foto) }}" alt="{{ $jugador->nom }}" class="jugador-foto">
       </div>
     @endforeach
   </div>
