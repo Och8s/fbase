@@ -99,6 +99,8 @@ Route::prefix('historia')->name('historia.')->group(function () {
     Route::get('/', [HistoriaController::class, 'index'])->name('index');
     Route::get('/ressenya', [HistoriaController::class, 'ressenya'])->name('ressenya');
     Route::get('/cronologia', [HistoriaController::class, 'cronologia'])->name('cronologia');
+        Route::get('/jugadors', [HistoriaController::class, 'jugadors'])->name('jugadors');
+
     Route::get('/fotografies', [HistoriaController::class, 'fotografies'])->name('fotografies');
     Route::get('/envians', [HistoriaController::class, 'envians'])->name('envians');
 });

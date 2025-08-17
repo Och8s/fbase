@@ -37,6 +37,18 @@ class HistoriaController extends Controller
     return view('historia.cronologia', compact('exits'));
 }
 
+// app/Http/Controllers/HistoriaController.php
+// app/Http/Controllers/HistoriaController.php
+public function jugadors()
+{
+    $jugadors = \App\Models\JugadorHistoric::where('actiu', true)
+        ->orderBy('ordre')->orderBy('cognoms')->get();
+
+    // IMPORTANT: assegura't que el fitxer existeix:
+    // resources/views/historia/jugadorsHistorics.blade.php
+    return view('historia.jugadorsHistorics', compact('jugadors'));
+}
+
 
     public function fotografies()
     {

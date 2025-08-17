@@ -10,9 +10,12 @@
     <div class="model1">
         <div class="ApartatX4">
             <div class="MedioA fotoGran">
-                <img class="plantillaFoto" src="{{ asset('images/historia/historia01.jpg') }}" alt="Història del club">
-                <span class="text-over-image">Des de 1970... una passió que creix</span>
-            </div>
+  <a href="{{ route('historia.jugadors') }}" class="cover-link" aria-label="Jugadors històrics">
+    <img class="plantillaFoto" src="{{ asset('images/historia/historia01.jpg') }}" alt="Història del club">
+    <span class="text-over-image">Coneix els nostres jugadors més il·lustres</span>
+  </a>
+</div>
+
         </div>
         <h3>HISTÒRIA DEL CLUB C.F. VILA-SECA</h3>
     </div>

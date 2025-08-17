@@ -34,7 +34,7 @@
 
 /* contenedor */
 .cronologia-h{
-  max-width: 1200px;
+  max-width: 1150px;
   margin: 32px auto;
   padding: 0 16px;
   font-family: Arial, sans-serif;
@@ -87,8 +87,8 @@
   display:inline-block;
   font-weight:800; color:#fff;
   background: linear-gradient(135deg, var(--club-blue), #0a3d90);
-  padding:5px 12px; border-radius:999px;
-  font-size: .95rem; margin-bottom:8px;
+  padding:4px 10px; border-radius:999px;
+  font-size: 0.9rem; margin-bottom:7px;
 }
 .timeline-h__bubble {
   position: absolute;
@@ -98,14 +98,14 @@
   border: 1px solid var(--line);
   border-radius: 14px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  padding: 18px 22px;       /* MÁS RELLENO */
+  padding: 10px 12px;       /* MÁS RELLENO */
   font-size: 14px;          /* TEXTO NORMAL MÁS PEQUEÑO */
   line-height: 1.5;
 }
 
 .timeline-h__bubble h3,
 .timeline-h__bubble h4 {
-  font-size: 18px;          /* TÍTULOS MÁS GRANDES */
+  font-size: 11px;          /* TÍTULOS MÁS GRANDES */
   font-weight: bold;
   margin-bottom: 8px;
   color: #003366;           /* DESTACADO CON AZUL */
@@ -130,6 +130,23 @@
   box-shadow:0 10px 24px rgba(0,0,0,.12);
   transform: translateY(-1px);
   transition: box-shadow .18s ease, transform .12s ease;
+}
+
+/* sweet Alert */
+.swal-btn-blue {
+  background-color:#003366 !important; /* blau bootstrap */
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.swal-btn-blue:hover {
+  background-color: #0056b3 !important;
+}
+.more-info {
+  font-weight: bold;
+  color: #2d8187;   /* blau, o el color corporatiu que facis servir */
+  cursor: pointer;
 }
 
 /* RESPONSIVE */

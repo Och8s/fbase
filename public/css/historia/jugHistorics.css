@@ -1,0 +1,36 @@
+.cronologia-h {
+  text-align: center;
+  padding: 30px;
+}
+
+.cronologia-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #004080; /* Blau club */
+}
+
+.jugadors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 per línia */
+  gap: 25px;
+  justify-items: center;
+}
+
+.jugador-card {
+  text-align: center;
+}
+
+.jugador-nom {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.jugador-foto {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%; /* Fa la foto circular */
+  border: 3px solid #004080; /* contorn blau */
+}

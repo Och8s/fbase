@@ -141,6 +141,7 @@
                     <div class="desplegableContingut">
                         <a href="{{ route('historia.ressenya') }}">Ressenya històrica</a>
                         <a href="{{ route('historia.cronologia') }}">Cronologia d'èxits</a>
+                        <a href="{{ route('historia.jugadors') }}">Jugadors històrics</a>
                         <a href="{{ route('historia.fotografies') }}">Fotografies històriques</a>
                         <a href="{{ route('historia.envians') }}">Envia'ns la teva foto</a>
                     </div>
@@ -171,6 +172,8 @@
             <a href="https://twitter.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
         </div>
     </footer>
+    @yield('scripts')
+
 
 </body>
 </html>

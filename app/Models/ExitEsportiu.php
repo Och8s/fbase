@@ -13,7 +13,7 @@ class ExitEsportiu extends Model
 
     protected $table = 'exits';
 
-protected $fillable = ['titol','foto','descripcio','data','actiu'];
+protected $fillable = ['titol','titolLlarg','foto','descripcio','data','actiu'];
 protected $casts = [
     'data' => 'date',
 ];
