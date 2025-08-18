@@ -25,6 +25,7 @@
     margin-bottom: 0 !important;
     padding: 0 !important;
 }
+
 :root{
   --club-blue:#003366;
   --club-yellow:#ffcc00;
@@ -33,13 +34,12 @@
 }
 
 /* contenedor */
-.cronologia-h{
+ .cronologia-h{
   max-width: 1150px;
   margin: 32px auto;
   padding: 0 16px;
-  font-family: Arial, sans-serif;
 }
-/*  */
+
 
 /* timeline horizontal */
 .timeline-h{

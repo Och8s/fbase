@@ -141,7 +141,7 @@
                     <div class="desplegableContingut">
                         <a href="{{ route('historia.ressenya') }}">Ressenya històrica</a>
                         <a href="{{ route('historia.cronologia') }}">Cronologia d'èxits</a>
-                        <a href="{{ route('historia.jugadors') }}">Jugadors històrics</a>
+                        <a href="{{ route('historia.jugadors') }}">Jugadors i figures històriques</a>
                         <a href="{{ route('historia.fotografies') }}">Fotografies històriques</a>
                         <a href="{{ route('historia.envians') }}">Envia'ns la teva foto</a>
                     </div>

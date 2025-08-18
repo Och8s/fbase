@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Descripcio;
 use App\Models\ExitEsportiu;
+use App\Models\FotoHistorica;
 
 
 
@@ -38,22 +39,21 @@ class HistoriaController extends Controller
 }
 
 // app/Http/Controllers/HistoriaController.php
-// app/Http/Controllers/HistoriaController.php
 public function jugadors()
 {
     $jugadors = \App\Models\JugadorHistoric::where('actiu', true)
-        ->orderBy('ordre')->orderBy('cognoms')->get();
+        ->inRandomOrder()   // els agafa a l’atzar
+        ->take(14)          // només 14 (5+4+5)
+        ->get();
 
-    // IMPORTANT: assegura't que el fitxer existeix:
-    // resources/views/historia/jugadorsHistorics.blade.php
     return view('historia.jugadorsHistorics', compact('jugadors'));
 }
 
-
     public function fotografies()
-    {
-        return view('historia.fotografies');
-    }
+{
+    $fotos = FotoHistorica::orderBy('data', 'asc')->get();
+    return view('historia.fotografies', compact('fotos'));
+}
 
     public function envians()
     {

@@ -1,36 +1,122 @@
-.cronologia-h {
+.jugadors-container {
+  width: 80%;
+  margin: 50px auto;
+  font-family: Arial, sans-serif;
+}
+
+.jugadors-title {
+  color: #003366;
+  font-size: 1.5rem;
+  font-weight: bold;
   text-align: center;
-  padding: 30px;
+  margin-top: 0.2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.cronologia-title {
-  font-size: 28px;
-  margin-bottom: 30px;
-  color: #004080; /* Blau club */
-}
-
-.jugadors-grid {
+.fila-jugadors {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 per línia */
-  gap: 25px;
+  gap: 20px;
   justify-items: center;
+  margin-bottom: 20px;
+}
+
+.cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+  padding: 0 30px;
+}
+
+.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0 140px;
 }
 
 .jugador-card {
   text-align: center;
+  cursor: pointer; /* hace visible que es clickable */
 }
 
 .jugador-nom {
   font-weight: bold;
   margin-bottom: 10px;
-  font-size: 18px;
+  font-size: 16px;
   color: #333;
 }
 
 .jugador-foto {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
-  border-radius: 50%; /* Fa la foto circular */
-  border: 3px solid #004080; /* contorn blau */
+  border-radius: 50%;
+  border: 3px solid #004080;
+}
+
+.jugadors-actions {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.jugadors-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.jugadors-title {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+}
+
+.refresh-btn {
+  background-color: white;
+  color: #004080;
+  padding: 5px 10px;
+  border: 1px solid #70869c;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: absolute;
+  right: 2rem;
+}
+
+.refresh-btn:hover {
+  background-color: #687b8a;
+  color: #fff;
+}
+
+/* SweetAlert botón */
+.swal-btn-blue {
+  background-color: #003366 !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.swal-btn-blue:hover {
+  background-color: #0056b3 !important;
+}
+
+/* marcador de info si lo usas en algún sitio */
+.more-info {
+  font-weight: bold;
+  color: #2d8187;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cols-5 { grid-template-columns: repeat(3, 1fr); }
+  .cols-4 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .cols-5, .cols-4 { grid-template-columns: repeat(2, 1fr); }
 }
