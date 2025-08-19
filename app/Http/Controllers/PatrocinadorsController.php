@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Patrocinador;
+use Illuminate\Support\Str;
+
 
 class PatrocinadorsController extends Controller
 {
@@ -19,12 +21,25 @@ class PatrocinadorsController extends Controller
     /**
      * Mostrar un patrocinador en concret
      */
-    public function mostra($id)
-    {
-        $patrocinador = Patrocinador::findOrFail($id);
-        return view('patrocinadors.mostra', compact('patrocinador'));
+
+public function mostra($id)
+{
+    $patrocinador = Patrocinador::findOrFail($id);
+
+    $url = $patrocinador->enllac_web;
+
+    if (!$url) {
+        abort(404, 'Aquest patrocinador no té enllaç web configurat.');
     }
 
+    // assegura que l’URL porta http:// o https://
+    if (!Str::startsWith($url, ['http://', 'https://'])) {
+        $url = 'https://' . $url;
+    }
+
+    // Redirecció externa
+    return redirect()->away($url);
+}
     /**
      * Formulari de creació
      */
