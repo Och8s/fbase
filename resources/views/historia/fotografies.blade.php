@@ -79,3 +79,8 @@
   <div class="carousel__dots" aria-label="Paginació"></div>
 </div>
 @endsection
+
+@section('scripts')
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="{{ asset('js/sweetAlertFotosAntigues.js') }}"></script>
+@endsection
