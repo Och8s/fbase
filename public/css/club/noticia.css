@@ -1,0 +1,134 @@
+/* Vista senzilla d'una notícia (ordre: títol, descripció, foto, meta, article, botó) */
+.noticia-senzilla {
+  max-width: 900px;
+  margin: 2rem auto 3rem;
+  padding: 0 1rem;
+}
+
+.ns-title {
+  font-size: clamp(1.8rem, 1.2vw + 1.4rem, 2.4rem);
+  line-height: 1.15;
+  font-weight: 800;
+  color: #3f617d;
+  margin: 0 0 1.5rem;
+  text-align: center;
+}
+
+.ns-desc {
+  font-size: 1.2rem;
+  color: #334155;
+  margin: 0 0 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.ns-date {
+  font-size: .95rem;
+  color: #475569;
+  margin-right: 0.5rem;
+}
+/* Contenidor article */
+.ns-article {
+  background: #fff;
+  border: 1px solid #a7b8cb;
+  border-radius: 12px;
+  padding: 1.5rem 1rem 1rem 1.5rem;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #111827;
+  position: relative;
+}
+
+/* Clearfix */
+.ns-article::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* Foto a la dreta dins l’article */
+.ns-article-image {
+  float: right;
+  margin-top: 0.5rem;
+  margin-left: 1.5rem;        /* 👈 més espai amb el text */
+  margin-right: 0.5rem;
+  margin-bottom: 0.8rem;      /* 👈 més espai sota la foto */
+  max-width: 320px;
+  min-height: 180px;
+  padding-left: 1.5rem;       /* 👈 més separació entre línia i foto */
+  border-left: 2px solid #d1d5db;
+  box-sizing: border-box;
+}
+
+.ns-article-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Meta sota la foto */
+.ns-photo-meta {
+  text-align: right;
+  font-size: .95rem;
+  color: #475569;
+  margin-top: .6rem;   /* 👈 més aire sota la imatge */
+}
+
+.ns-photo-meta .ns-seccio { text-transform: capitalize; }
+.ns-photo-meta .ns-dot { margin: 0 .35rem; }
+
+/* 👇 Aquest és el fix clau */
+.ns-article p:first-of-type,
+.ns-article h2:first-of-type,
+.ns-article h3:first-of-type {
+  margin-top: 0;   /* el primer text arrenca alineat amb la foto */
+}
+
+/* Espaiat coherent */
+.ns-article > * + * {
+  margin-top: 1rem;
+}
+/* Botón estilo "VEURE" reutilizado para volver */
+.btn-veure {
+background-color: #003366;
+  color: #ffffff;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1.2;
+  text-align: center;
+  white-space: normal;
+  max-width: 100;
+  min-height: 40px;
+  display: inline-block;      /* asegura que el <a> respete paddings y tamaño */
+  text-decoration: none;      /* quita subrayado */
+}
+
+.noticia-dades .btn-veure:hover,
+.ns-actions .btn-veure:hover {
+  background-color: #030350;
+}
+
+/* contenedor del botón de vuelta */
+.ns-actions {
+  margin-top: 1.5rem;
+  text-align: center;         /* centra el botón */
+}
+
+
+
+
+/* Responsiu */
+@media (max-width: 768px) {
+  .ns-article-image {
+    float: none;
+    margin: 0 auto 1rem auto;
+    max-width: 100%;
+    text-align: center;
+  }
+  .ns-photo-meta { text-align: center; }
+}

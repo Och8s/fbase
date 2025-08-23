@@ -30,8 +30,7 @@ Route::prefix('club')->name('club.')->group(function () {
     Route::get('/fes-te-soci', [ClubController::class, 'soci'])->name('soci');
     Route::get('/acces-soci', [ClubController::class, 'accesSoci'])->name('accesSoci');
     Route::get('/noticia/{id}', [ClubController::class, 'veureNoticia'])->name('noticies.show');
-    Route::get('/noticia/{id}', [ClubController::class, 'veureNoticia'])->name('noticies.show');
-
+    // Route::get('/noticia/{id}', [ClubController::class, 'veureNoticia'])->name('noticies.show');
     Route::get('/events', [ClubController::class, 'events'])->name('events');
     Route::get('/events/{id}', [ClubController::class, 'showEvent'])->name('events.show');
 

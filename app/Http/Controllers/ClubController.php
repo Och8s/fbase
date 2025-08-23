@@ -28,7 +28,9 @@ public function noticies()
 public function veureNoticia($id)
 {
     $noticia = Noticia::findOrFail($id);
-    return view('club.noticia', compact('noticia'));
+    // return view('club.noticia', compact('noticia')); de momento la vista es noticiaPlantilla
+    return view('club.noticiaPlantilla', compact('noticia'));
+
 }
 
 public function noticiesAntigues()
