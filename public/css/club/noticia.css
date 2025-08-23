@@ -91,22 +91,21 @@
 }
 /* Botón estilo "VEURE" reutilizado para volver */
 .btn-veure {
-background-color: #003366;
+  background-color: #003366;
   color: #ffffff;
-  padding: 0.8rem 1rem;
+  padding: 0.6rem 0.8rem;   /* menos padding */
   font-size: 1rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  line-height: 1.2;
   text-align: center;
-  white-space: normal;
-  max-width: 100;
-  min-height: 40px;
-  display: inline-block;      /* asegura que el <a> respete paddings y tamaño */
-  text-decoration: none;      /* quita subrayado */
+  display: inline-block;
+  text-decoration: none;
+  line-height: 1.2;         /* controla la altura del texto */
+  min-height: auto;         /* 👈 quita el mínimo de 40px */
 }
+
 
 .noticia-dades .btn-veure:hover,
 .ns-actions .btn-veure:hover {

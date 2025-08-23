@@ -1,0 +1,111 @@
+.esdeveniment-senzill {
+  max-width: 1100px;
+  margin: 3rem auto 3rem;
+  padding: 0 1rem;
+}
+
+/* ✅ Títol principal estil "titol-noticies" */
+.ev-title {
+  color: #003366;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 0 !important;
+
+}
+
+/* Layout 2 columnes */
+.ev-layout {
+  display: grid;
+  grid-template-columns: 25% 1fr; /* 25% esquerra, 75% dreta */
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+/* Columna esquerra */
+.ev-left {
+  border: 1px solid #a7b8cb;
+  border-radius: 12px;
+  padding: 1rem;
+  background: #fff;
+}
+
+.ev-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.ev-dades-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+  color: #003366;
+}
+
+.ev-dades p {
+  margin: .3rem 0;
+  font-size: .95rem;
+  color: #334155;
+}
+
+/* Columna dreta */
+.ev-right {
+  padding: 1.2rem;
+  padding-top: 0.2rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #111827;
+}
+
+.ev-detallat-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #3f617d;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+/* Botó */
+.ev-actions {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ev-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ev-action-button {
+  text-align: right;   /* 👉 col·loca el botó a la dreta */
+  margin-top: 0.8rem;
+}
+
+.btn-accio {
+  background-color: #003366;
+  color: #fff;
+  padding: 0.25rem 0.6rem;  /* més petit */
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.85rem;       /* 👉 lletra més petita */
+  transition: background 0.3s;
+}
+
+.btn-accio:hover {
+  background-color: #001f4d;
+}

@@ -56,10 +56,16 @@ public function mostrarObjectius()
 }
 
 // 2 EVENTS
-
     public function events() {
 $events = Event::orderBy('id', 'asc')->get();
     return view('club.events', compact('events'));
+}
+// un event
+public function showEvent($id)
+{
+    $event = Event::findOrFail($id); // busca por ID
+    \Carbon\Carbon::setLocale('ca');
+    return view('club.esdevenimentPlantilla', compact('event'));
 }
 
     public function soci() { return view('club.soci'); }

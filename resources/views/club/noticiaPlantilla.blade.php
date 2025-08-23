@@ -46,7 +46,7 @@
 
   {{-- 4) Botó tornar --}}
  <div class="ns-actions">
-  <a class="btn-veure btn-back" href="{{ route('club.noticies') }}">TORNAR A<br>NOTÍCIES</a>
+  <a class="btn-veure btn-back" href="{{ route('club.noticies') }}">TORNAR A NOTÍCIES</a>
 </div>
 
 </main>
