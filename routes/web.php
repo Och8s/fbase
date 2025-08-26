@@ -33,6 +33,9 @@ Route::prefix('club')->name('club.')->group(function () {
     // Route::get('/noticia/{id}', [ClubController::class, 'veureNoticia'])->name('noticies.show');
     Route::get('/events', [ClubController::class, 'events'])->name('events');
     Route::get('/events/{id}', [ClubController::class, 'showEvent'])->name('events.show');
+      //  RUTES de accio: vista d'acció i submit
+    Route::get('/events/{event}/accio', [ClubController::class, 'eventAction'])->name('events.action');
+    Route::post('/events/{event}/accio', [ClubController::class, 'eventActionSubmit'])->name('events.action.submit');
 
 });
 

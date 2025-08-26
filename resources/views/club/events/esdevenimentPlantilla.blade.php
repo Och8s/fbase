@@ -61,29 +61,28 @@
 <div class="ev-action-button">
   @switch($event->action_type)
     @case('inscripcio_campus')
-      <a href="{{ route('club.events.show', $event->id) }}#form" class="btn-accio">Inscriu-te al Campus!</a>
+      <a href="{{ route('club.events.action', $event) }}" class="btn-accio">Inscriu-te al Campus</a>
       @break
-
     @case('inscripcio_tecnificacio')
-      <a href="{{ route('club.events.show', $event->id) }}#form" class="btn-accio">Inscriu-te a la Tecnificació!</a>
+      <a href="{{ route('club.events.action', $event) }}" class="btn-accio">Inscriu-te a la Tecnificació</a>
       @break
-
     @case('ticket_menjar_presentacio')
-      <a href="{{ route('club.events.show', $event->id) }}#form" class="btn-accio">Comprar Tiquet Menjar</a>
+      <a href="{{ route('club.events.action', $event) }}" class="btn-accio">Comprar Tiquet Menjar</a>
       @break
-
     @case('ticket_menjar_soci')
-      <a href="{{ route('club.events.show', $event->id) }}#form" class="btn-accio">Comprar Tiquet Menjar</a>
+      <a href="{{ route('club.events.action', $event) }}" class="btn-accio">Comprar Tiquet Soci</a>
       @break
-
     @case('documentacio')
-      <a href="{{ route('club.events.show', $event->id) }}#form" class="btn-accio">Enviar Documentació</a>
+      <a href="{{ route('club.events.action', $event) }}" class="btn-accio">Enviar Documentació</a>
       @break
-
+    @case('entrades_gratuites')
+      <a href="{{ route('club.events.action', $event) }}" class="btn-accio">Reservar Entrada</a>
+      @break
     @default
-      <a href="{{ route('club.events.show', $event->id) }}#form" class="btn-accio">Entrada Gratuíta</a>
+      <a href="{{ route('club.events.action', $event) }}" class="btn-accio">Més informació</a>
   @endswitch
 </div>
+
 
     </article>
   </div>
