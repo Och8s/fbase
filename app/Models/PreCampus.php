@@ -21,6 +21,7 @@ class PreCampus extends Model
         'domicili',
         'cp',
         'telefon',
+        'email',
         'nom_pares',
         'num_compte',
         'consentiment_pares',
@@ -30,6 +31,8 @@ class PreCampus extends Model
         'incapacitat',
         'estat',
         'jugador_id',
+        'observacions',
+        'recollida',
     ];
 
     protected $casts = [
