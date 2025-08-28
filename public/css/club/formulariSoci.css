@@ -1,0 +1,102 @@
+/* Assegurem que tot respecta el box-sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* Contenidor principal del formulari */
+.formulari-soci {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 40px 50px; /* igual esquerra i dreta */
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Títol del formulari */
+.titol-formuSoci {
+    color: #003366;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 0 20px 0; /* espai uniforme sota */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Cada grup del formulari */
+.form-group {
+    margin-bottom: 18px;
+}
+
+/* Etiquetes */
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #003366;
+}
+
+/* Inputs */
+.form-group input {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Estil al focus */
+.form-group input:focus {
+    outline: none;
+    border-color: #ffcc00; /* groc */
+    box-shadow: 0 0 4px rgba(255, 204, 0, 0.6);
+}
+
+/* Botó enviar centrat */
+.form-submit {
+    text-align: center;
+    margin-top: 25px;
+}
+
+/* Botó estilitzat */
+.btn-enviar {
+    background: #003366;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-enviar:hover {
+    background: #ffcc00;
+    color: #003366;
+}
+
+/* Missatges d’èxit o errors */
+.alert-exit {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #e6ffed;
+    color: #2e7d32;
+    text-align: center;
+}
+
+.llista-errors {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #ffe6e6;
+    color: #b71c1c;
+    list-style: none;
+}

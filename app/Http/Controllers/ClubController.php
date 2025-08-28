@@ -11,6 +11,7 @@ use App\Models\Event;
 use Illuminate\Validation\Rule;
 use App\Models\PreCampus;
 use App\Models\PreTecnificacio;
+use App\Models\PreSoci;
 
 
 
@@ -74,9 +75,34 @@ public function showEvent($id)
 
 
 
-    public function soci() { return view('club.soci'); }
-    public function accesSoci() { return view('club.accesSoci'); }
+    public function soci()
+{
+    return view('club.formulariSoci'); // <- el teu fitxer
+}
 
+public function storeSoci(Request $request)
+{
+    $validated = $request->validate([
+        'name'          => ['required','string','max:255'],
+        'email'         => ['required','email','max:255','unique:socis,email'],
+        'dni'           => ['required','string','max:20','unique:socis,dni'],
+        'data_naix'     => ['required','date'],
+        'telefon'       => ['required','string','max:30'],
+        'adreca'        => ['required','string','max:255'],
+        'poblacio'      => ['required','string','max:120'],
+        'numero_compte' => ['required','string','max:34'], // IBAN fins a 34
+        'user_id'       => ['nullable','integer','exists:users,id'],
+        // 'estat' no ve del formulari: el posem nosaltres
+    ]);
+
+    $validated['estat'] = 'pendent';
+
+    PreSoci::create($validated);
+
+    return redirect()
+        ->route('club.soci')
+        ->with('status', 'Sol·licitud enviada! Et contactarem ben aviat.');
+}
 
 // Eventos boton action
 
@@ -258,6 +284,6 @@ public function eventActionSubmit(Request $request, Event $event)
                 return back()->with('status', 'Acció no disponible.');
         }
     }
-
+// FIN EVENETOS........................................................
 
 }
