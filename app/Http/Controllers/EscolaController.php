@@ -61,8 +61,16 @@ public function equips()
 
 public function mostrarEquip($id)
 {
-    $equip = Equip::with(['categoria', 'subcategoria'])->findOrFail($id);
-    return view('escola.equip', compact('equip'));
+    $equip = Equip::with([
+        'categoria:id,nom',
+        'subcategoria:id,nom',
+        'modalitat:id,nom',
+        'entrenador:id,name',
+        'jugadors:id,nom,cognoms,dorsal,equip_id', // <- AÑADIDO
+    ])->findOrFail($id);
+
+    return view('escola.PlantillaEquipBase', compact('equip'));
 }
+
 
 }
