@@ -3,7 +3,6 @@
 @section('title', 'Cronologia del Club')
 
 @section('styles')
-  <link rel="stylesheet" href="{{ asset('css/club/index.css') }}">
   <link rel="stylesheet" href="{{ asset('css/historia/crono.css') }}">
 @endsection
 

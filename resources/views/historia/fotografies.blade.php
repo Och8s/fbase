@@ -3,7 +3,6 @@
 @section('title', 'Fotos Històriques')
 
 @section('styles')
-  <link rel="stylesheet" href="{{ asset('css/club/index.css') }}">
   <link rel="stylesheet" href="{{ asset('css/historia/fotosHist.css') }}">
 @endsection
 

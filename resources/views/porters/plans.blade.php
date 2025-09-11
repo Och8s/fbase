@@ -1,7 +1,6 @@
 @extends('layouts.public')
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('css/club/index.css') }}">
 <link rel="stylesheet" href="{{ asset('css/porters/plans.css') }}">
 @endsection
 

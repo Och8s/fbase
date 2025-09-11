@@ -3,7 +3,6 @@
 @section('title', 'Acció | ' . $event->titol)
 
 @section('styles')
-  <link rel="stylesheet" href="{{ asset('css/club/index.css') }}">
 
   <link rel="stylesheet" href="{{ asset('css/club/esdeveniment.css') }}">
 @endsection

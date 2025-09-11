@@ -3,7 +3,6 @@
 @section('title', 'Jugadors Històrics')
 
 @section('styles')
-  <link rel="stylesheet" href="{{ asset('css/club/index.css') }}">
   <link rel="stylesheet" href="{{ asset('css/historia/jugHistorics.css') }}">
 @endsection
 

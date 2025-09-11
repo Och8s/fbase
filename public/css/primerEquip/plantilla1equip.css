@@ -1,0 +1,147 @@
+/* Arrel de la vista, perquè no interfereixi amb altres pàgines */
+.plantilla1equip {
+  margin-top: 1rem;
+}
+
+/* Títol pàgina */
+.plantilla1equip .page-title {
+  text-align: center;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  color: #20343f;
+}
+
+/* Graella 6x? (responsive) */
+.plantilla1equip .plantilla-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* Targeta jugador */
+.plantilla1equip .player-card {
+  background: #ffffff;
+  border: 2px solid #a7b8cb;
+  border-radius: 12px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,.08);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.plantilla1equip .player-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,.12);
+}
+
+/* Foto amb zoom al hover */
+.plantilla1equip .photo-wrapper {
+  aspect-ratio: 3/4;         /* alçada agradable */
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #d9e1ea;
+  margin-bottom: 0.5rem;
+}
+
+.plantilla1equip .photo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+
+.plantilla1equip .player-card:hover .photo-wrapper img {
+  transform: scale(1.08);
+}
+
+/* Nom del jugador */
+.plantilla1equip .player-name {
+  font-weight: 700;
+  color: #20343f;
+  margin: 0.25rem 0 0.5rem 0;
+  line-height: 1.2;
+  min-height: 2.4em; /* ajuda a quadrar targetes amb noms de 1-2 línies */
+}
+
+.plantilla1equip .player-name .dorsal {
+  background: #001f4d;
+  color: #ffcc00;
+  font-weight: 800;
+  padding: 0.1rem 0.4rem;
+  border-radius: 6px;
+  margin-right: 0.35rem;
+}
+
+/* Botó Més info (mateixa línia visual que el layout) */
+.plantilla1equip .btn-mes-info {
+  background-color: #003366;
+  color: #ffffff;
+  border: none;
+  padding: 0.55rem 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color .25s ease, transform .1s ease;
+}
+
+.plantilla1equip .btn-mes-info:hover {
+  background-color: #001f4d;
+}
+
+.plantilla1equip .btn-mes-info:active {
+  transform: scale(0.98);
+}
+
+/* Missatge sense jugadors */
+.plantilla1equip .no-players {
+  grid-column: 1/-1;
+  text-align: center;
+  background: #fff;
+  border: 2px dashed #a7b8cb;
+  border-radius: 12px;
+  padding: 1rem;
+  color: #20343f;
+}
+
+
+.titol-plantilla {
+    color: #003366;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.titol-plantilla {
+    margin-top: 0 !important;
+    margin-bottom: 3rem !important;
+    padding: 0 !important;
+}
+
+
+/* Responsiu: 6→4→3→2 columnes segons ample */
+@media (max-width: 1400px) {
+  .plantilla1equip .plantilla-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+@media (max-width: 1200px) {
+  .plantilla1equip .plantilla-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (max-width: 992px) {
+  .plantilla1equip .plantilla-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .plantilla1equip .plantilla-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

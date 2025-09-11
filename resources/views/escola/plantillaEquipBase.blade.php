@@ -2,6 +2,9 @@
 
 @section('styles')
 <link rel="stylesheet" href="{{ asset('css/one_fourBlocs.css') }}">
+
+  <link rel="stylesheet" href="{{ asset('css/escola/equipsPlantilla.css') }}">
+
 <style>
 
 /* mini estilos para la línea de metadatos */

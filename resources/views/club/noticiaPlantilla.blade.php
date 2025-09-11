@@ -4,7 +4,6 @@
 @section('title', $noticia->titol . ' | Club')
 
 @section('styles')
-  <link rel="stylesheet" href="{{ asset('css/club/index.css') }}">
   <link rel="stylesheet" href="{{ asset('css/club/noticia.css') }}">
 @endsection
 

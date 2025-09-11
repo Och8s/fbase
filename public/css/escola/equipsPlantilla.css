@@ -1,0 +1,52 @@
+
+
+
+/* sweet Alert */
+.swal-btn-blue {
+  background-color:#003366 !important; /* blau bootstrap */
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+  font: 1em sans-serif;
+  padding: 0.6em 1em;
+  border-radius: 2px;
+}
+
+.swal-btn-blue:hover {
+  background-color: #0056b3 !important;
+}
+.more-info {
+  font-weight: bold;
+  color: #2d8187;   /* blau, o el color corporatiu que facis servir */
+  cursor: pointer;
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width: 1100px){
+  .timeline-h{ column-gap:10px; }
+  .timeline-h__bubble{ max-width: 280px; }
+}
+@media (max-width: 900px){
+  .timeline-h{ column-gap:8px; padding: 80px 0; min-height: 400px; }
+  .timeline-h__bubble{ max-width: 260px; }
+}
+@media (max-width: 720px){
+  /* 2 filas x 6 columnas para móviles */
+  .timeline-h{
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 90px;
+    padding: 70px 0;
+    min-height: 520px;
+  }
+}
+@media (max-width: 520px){
+  /* 4 filas x 3 columnas si es muy estrecho */
+  .timeline-h{
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 100px;
+    min-height: 700px;
+  }
+  .timeline-h__bubble{ max-width: 240px; }
+}

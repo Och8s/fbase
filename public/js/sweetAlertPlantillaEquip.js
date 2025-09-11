@@ -36,15 +36,17 @@ document.addEventListener('DOMContentLoaded', function () {
       : '<p>No hi ha jugadors assignats encara.</p>';
 
     Swal.fire({
-      title: `Jugadors de ${titol}`,
+      title: `Jugadors del ${titol}`,
       html,
       icon: 'info',
       width: 700,
+      showCloseButton: true,
       confirmButtonText: 'Tancar',
-      customClass: {
-        confirmButton: 'swal-btn-blue'
-      },
+       customClass: {
+    confirmButton: 'swal-btn-blue'
+  },
       buttonsStyling: false
     });
   });
 });
+// k
