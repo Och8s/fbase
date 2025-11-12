@@ -30,7 +30,7 @@
             </div>
             <div class="MedioA">
                 <a href="{{ route('primer.jornada') }}">
-                    <button>JORNADAX</button>
+                    <button>JORNADA</button>
                 </a>
                 <img src="{{ asset('images/primer_equip/jornada.jpeg') }}" alt="Jornada">
             </div>
